@@ -1,662 +1,617 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="bn">
 <head>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Net Connection BD</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      background:#050816;
-      color:white;
-      overflow-x:hidden;
-    }
-
-    .container{
-      width:90%;
-      max-width:1200px;
-      margin:auto;
-    }
-
-    /* NAVBAR */
-
-    nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:18px 0;
-      border-bottom:1px solid rgba(0,255,255,0.1);
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:rgba(5,8,22,0.95);
-      backdrop-filter:blur(10px);
-    }
-
-    .logo{
-      font-size:26px;
-      font-weight:700;
-      color:#00e5ff;
-      text-shadow:0 0 10px #00e5ff;
-    }
-
-    .menu{
-      display:flex;
-      gap:25px;
-      flex-wrap:wrap;
-    }
-
-    .menu a{
-      color:#d1d5db;
-      text-decoration:none;
-      transition:0.3s;
-      font-weight:500;
-    }
-
-    .menu a:hover{
-      color:#00e5ff;
-    }
-
-    /* HERO */
-
-    .hero{
-      min-height:90vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .hero::before{
-      content:'';
-      position:absolute;
-      width:600px;
-      height:600px;
-      background:rgba(0,229,255,0.08);
-      border-radius:50%;
-      filter:blur(100px);
-      animation:move 8s infinite alternate;
-    }
-
-    @keyframes move{
-      from{
-        transform:translate(-150px,-50px);
-      }
-      to{
-        transform:translate(150px,80px);
-      }
-    }
-
-    .hero-content{
-      position:relative;
-      z-index:1;
-    }
-
-    .hero h1{
-      font-size:65px;
-      line-height:1.2;
-      margin-bottom:20px;
-    }
-
-    .hero span{
-      color:#00e5ff;
-      text-shadow:0 0 15px #00e5ff;
-    }
-
-    .hero p{
-      color:#9ca3af;
-      font-size:19px;
-      max-width:700px;
-      margin:auto;
-    }
-
-    .hero-buttons{
-      margin-top:40px;
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      padding:15px 35px;
-      border-radius:15px;
-      text-decoration:none;
-      font-weight:600;
-      transition:0.3s;
-      display:inline-block;
-    }
-
-    .btn-primary{
-      background:#00e5ff;
-      color:black;
-      box-shadow:0 0 20px rgba(0,229,255,0.3);
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-5px);
-      box-shadow:0 0 30px #00e5ff;
-    }
-
-    .btn-outline{
-      border:1px solid #00e5ff;
-      color:#00e5ff;
-    }
-
-    .btn-outline:hover{
-      background:#00e5ff;
-      color:black;
-    }
-
-    /* SECTION */
-
-    section{
-      padding:90px 0;
-    }
-
-    .section-title{
-      text-align:center;
-      font-size:40px;
-      margin-bottom:50px;
-      color:#00e5ff;
-      text-shadow:0 0 10px rgba(0,229,255,0.5);
-    }
-
-    /* PACKAGE */
-
-    .package-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
-    }
-
-    .card{
-      background:#0b1228;
-      border:1px solid rgba(0,255,255,0.15);
-      border-radius:25px;
-      padding:35px;
-      transition:0.4s;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .card::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:linear-gradient(120deg,transparent,rgba(0,229,255,0.08),transparent);
-      transform:translateX(-100%);
-      transition:0.6s;
-    }
-
-    .card:hover::before{
-      transform:translateX(100%);
-    }
-
-    .card:hover{
-      transform:translateY(-10px);
-      border-color:#00e5ff;
-      box-shadow:0 0 30px rgba(0,229,255,0.2);
-    }
-
-    .speed{
-      font-size:30px;
-      font-weight:700;
-      color:#00e5ff;
-    }
-
-    .price{
-      font-size:52px;
-      font-weight:700;
-      margin:15px 0;
-    }
-
-    .card ul{
-      list-style:none;
-      margin-top:20px;
-    }
-
-    .card ul li{
-      margin:12px 0;
-      color:#d1d5db;
-    }
-
-    /* COVERAGE */
-
-    .coverage-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:20px;
-    }
-
-    .coverage-box{
-      background:#0b1228;
-      border:1px solid rgba(0,255,255,0.15);
-      padding:25px;
-      border-radius:20px;
-      text-align:center;
-      transition:0.3s;
-      font-weight:600;
-    }
-
-    .coverage-box:hover{
-      transform:translateY(-6px);
-      border-color:#00e5ff;
-      box-shadow:0 0 20px rgba(0,229,255,0.15);
-    }
-
-    /* FTP */
-
-    .ftp-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
-
-    .ftp-card{
-      background:#0b1228;
-      padding:35px;
-      border-radius:25px;
-      text-align:center;
-      border:1px solid rgba(0,255,255,0.15);
-      transition:0.3s;
-      font-size:22px;
-      font-weight:600;
-    }
-
-    .ftp-card:hover{
-      transform:translateY(-8px);
-      border-color:#00e5ff;
-    }
-
-    /* CONTACT */
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
-
-    .contact-box{
-      background:#0b1228;
-      border-radius:20px;
-      padding:30px;
-      text-align:center;
-      border:1px solid rgba(0,255,255,0.15);
-      transition:0.3s;
-    }
-
-    .contact-box:hover{
-      transform:translateY(-6px);
-      border-color:#00e5ff;
-    }
-
-    /* LOGIN */
-
-    .login-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:25px;
-      max-width:650px;
-      margin:auto;
-    }
-
-    .login-box{
-      background:#0b1228;
-      border-radius:22px;
-      padding:35px;
-      text-align:center;
-      text-decoration:none;
-      color:white;
-      border:1px solid rgba(0,255,255,0.15);
-      transition:0.3s;
-    }
-
-    .login-box:hover{
-      transform:translateY(-8px);
-      border-color:#00e5ff;
-      box-shadow:0 0 25px rgba(0,229,255,0.2);
-    }
-
-    .icon{
-      font-size:45px;
-      margin-bottom:15px;
-    }
-
-    .text{
-      font-size:20px;
-      font-weight:600;
-    }
-
-    /* FOOTER */
-
-    footer{
-      padding:35px 20px;
-      border-top:1px solid rgba(0,255,255,0.1);
-      text-align:center;
-      color:#9ca3af;
-      margin-top:40px;
-    }
-
-    footer p{
-      margin:8px 0;
-    }
-
-    /* MOBILE */
-
-    @media(max-width:768px){
-
-      nav{
-        flex-direction:column;
-        gap:15px;
-      }
-
-      .menu{
-        justify-content:center;
-      }
-
-      .hero h1{
-        font-size:42px;
-      }
-
-      .hero p{
-        font-size:16px;
-      }
-
-      .section-title{
-        font-size:32px;
-      }
-
-      .price{
-        font-size:40px;
-      }
-
-    }
-
-  </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetSpeed — Next Gen Internet</title>
+    <style>
+        /* আধুনিক গ্লোবাল রিসেট */
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hind Siliguri', 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0f172a; /* ডার্ক ব্যাকগ্রাউন্ড */
+            color: #f8fafc;
+            overflow-x: hidden;
+            padding-top: 30px; /* একদম ওপরের লগইন বারের জন্য একটু স্পেস */
+        }
+
+        /* একদম ওপরের ছোট লগইন বার */
+        .top-mini-bar {
+            position: absolute;
+            top: 8px;
+            right: 8%;
+            z-index: 1001;
+        }
+
+        .btn-login {
+            background: rgba(255, 255, 255, 0.05);
+            color: #94a3b8;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 4px 14px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 12px; /* ছোট সাইজ */
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-login::before {
+            content: "👤";
+            font-size: 11px;
+        }
+
+        .btn-login:hover {
+            background: #38bdf8;
+            color: #0f172a;
+            border-color: #38bdf8;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+        }
+
+        /* গ্লাস-মরফিজম হেডার */
+        header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #38bdf8;
+        }
+
+        /* আল্ট্রা-মডার্ন হিরো সেকশন */
+        .hero {
+            position: relative;
+            height: 85vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 10;
+        }
+
+        .hero-content h1 {
+            font-size: 54px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 40%, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #94a3b8;
+            margin-bottom: 35px;
+            font-weight: 400;
+        }
+
+        /* গ্রেডিয়েন্ট বাটন */
+        .btn {
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            color: white;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(56, 189, 248, 0.5);
+        }
+
+        /* প্রিমিয়াম কার্ড সেকশন */
+        .packages {
+            padding: 100px 8% 60px 8%;
+            text-align: center;
+        }
+
+        .packages h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .package-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* গ্লাস কার্ড ডিজাইন */
+        .package-card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 40px 30px;
+            border-radius: 24px;
+            width: 340px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(56, 189, 248, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(99, 102, 241, 0.1);
+        }
+
+        /* পপুলার কার্ডের জন্য স্পেশাল গ্লো */
+        .package-card.popular {
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            background: rgba(30, 41, 59, 0.7);
+        }
+
+        .badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: white;
+            padding: 4px 18px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .package-card h3 {
+            font-size: 20px;
+            color: #94a3b8;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .speed {
+            font-size: 42px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: 500;
+            color: #38bdf8;
+            margin-bottom: 30px;
+        }
+
+        .package-card ul {
+            list-style: none;
+            margin-bottom: 35px;
+            text-align: left;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 25px;
+        }
+
+        .package-card ul li {
+            margin-bottom: 12px;
+            color: #94a3b8;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .package-card ul li::before {
+            content: "✓";
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .btn-buy {
+            display: block;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .package-card:hover .btn-buy {
+            background: #fff;
+            color: #0f172a;
+        }
+
+        .package-card.popular .btn-buy {
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            border: none;
+        }
+        
+        .package-card.popular:hover .btn-buy {
+            background: linear-gradient(135deg, #6366f1, #38bdf8);
+            color: #fff;
+        }
+
+        /* ডায়নামিক কভারেজ এরিয়া সেকশন */
+        .coverage {
+            padding: 60px 8% 100px 8%;
+            text-align: center;
+        }
+
+        .coverage h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .coverage p {
+            color: #94a3b8;
+            margin-bottom: 35px;
+            font-size: 16px;
+        }
+
+        /* বিভাগ ট্যাব বাটন */
+        .division-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #94a3b8;
+            padding: 10px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+        }
+
+        /* সাব-এরিয়া গ্রিড লেআউট */
+        .area-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            min-height: 120px;
+        }
+
+        .area-card {
+            background: rgba(30, 41, 59, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            animation: fadeIn 0.5s ease forwards;
+            transition: all 0.3s ease;
+        }
+
+        .area-card:hover {
+            background: rgba(56, 189, 248, 0.1);
+            border-color: rgba(56, 189, 248, 0.3);
+            color: #38bdf8;
+            transform: translateY(-3px);
+        }
+
+        .area-card::before {
+            content: "📍";
+            font-size: 16px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* যোগাযোগ সেকশন */
+        .contact {
+            background: radial-gradient(circle at bottom, rgba(56, 189, 248, 0.08) 0%, transparent 50%);
+            padding: 80px 8%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .contact h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: #94a3b8;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .contact strong {
+            color: #38bdf8;
+            font-size: 20px;
+        }
+
+        /* মিনিমাল ফুটার */
+        footer {
+            background: #090d16;
+            color: #64748b;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* রেসপন্সিভ ডিজাইন */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 40px;
+            }
+            .top-mini-bar {
+                right: 50%;
+                transform: translateX(50%); /* মোবাইলে মাঝখানে চলে আসবে */
+                top: 10px;
+            }
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+            nav ul {
+                justify-content: center;
+                width: 100%;
+            }
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            .hero {
+                height: auto;
+                padding: 100px 20px;
+            }
+            .packages, .coverage {
+                padding: 60px 20px;
+            }
+            .area-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .area-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-  <!-- NAVBAR -->
-
-  <div class="container">
-
-    <nav>
-
-      <div class="logo">Net Connection BD</div>
-
-      <div class="menu">
-        <a href="#">Home</a>
-        <a href="#packages">Packages</a>
-        <a href="#coverage">Coverage</a>
-        <a href="apply.html">Apply</a>
-        <a href="#contact">Contact</a>
-      </div>
-
-    </nav>
-
-  </div>
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="hero-content container">
-
-      <h1>
-        High Speed <span>Fiber Internet</span>
-      </h1>
-
-      <p>
-        Fast, Secure & Reliable Internet Service Provider in Bangladesh
-      </p>
-
-      <div class="hero-buttons">
-
-        <a href="apply.html" class="btn btn-primary">
-          Get Started
-        </a>
-
-        <a href="#packages" class="btn btn-outline">
-          View Packages
-        </a>
-
-      </div>
-
+    <!-- একদম ওপরের ছোট কাস্টমার লগইন বাটন -->
+    <div class="top-mini-bar">
+        <a href="#login" class="btn-login">Customer Login</a>
     </div>
 
-  </section>
+    <!-- হেডার বা নেভিগেশন বার -->
+    <header>
+        <div class="logo">NetSpeed</div>
+        <nav>
+            <ul>
+                <li><a href="#home">হোম</a></li>
+                <li><a href="#packages">প্যাকেজ</a></li>
+                <li><a href="#coverage">এরিয়া</a></li>
+                <li><a href="#contact">যোগাযোগ</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- PACKAGES -->
+    <!-- হিরো সেকশন -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>গতির দুনিয়ায় আগামী প্রজন্মের সংযোগ</h1>
+            <p>অপ্রতিহত স্পিড আর নিরবচ্ছিন্ন বাফারিং-মুক্ত ইন্টারনেটের অভিজ্ঞতা নিন NetSpeed-এর সাথে।</p>
+            <a href="#packages" class="btn">প্যাকেজগুলো দেখুন</a>
+        </div>
+    </section>
 
-  <section id="packages">
+    <!-- প্যাকেজ সেকশন -->
+    <section id="packages" class="packages">
+        <h2>আপনার জন্য সেরা প্ল্যানটি বেছে নিন</h2>
+        <div class="package-container">
+            
+            <!-- কার্ড ১ -->
+            <div class="package-card">
+                <div>
+                    <h3>স্টার্টার প্যাক</h3>
+                    <div class="speed">20 Mbps</div>
+                    <p class="price">৳ ৫০০ / মাস</p>
+                </div>
+                <div>
+                    <ul>
+                        <li>স্মুথ ফেসবুক ও ইউটিউব স্ট্রিমিং</li>
+                        <li>২৪/৭ ডেডিকেটেড সাপোর্ট</li>
+                        <li>ফ্রি অপটিক্যাল ফাইবার সংযোগ</li>
+                    </ul>
+                    <a href="#contact" class="btn-buy">সংযোগ নিন</a>
+                </div>
+            </div>
 
-    <div class="container">
+            <!-- কার্ড ২ (পপুলার) -->
+            <div class="package-card popular">
+                <span class="badge">সর্বাধিক জনপ্রিয়</span>
+                <div>
+                    <h3>গেমিং ও প্রো</h3>
+                    <div class="speed">50 Mbps</div>
+                    <p class="price">৳ ৮০০ / মাস</p>
+                </div>
+                <div>
+                    <ul>
+                        <li>আল্ট্রা-লো পিং গেমিং সুবিধা</li>
+                        <li>আনলিমিটেড বাফারলেস ব্রাউজিং</li>
+                        <li>প্রায়োরিটি কাস্টমার সাপোর্ট</li>
+                    </ul>
+                    <a href="#contact" class="btn-buy">সংযোগ নিন</a>
+                </div>
+            </div>
 
-      <h2 class="section-title">
-        Internet Packages
-      </h2>
-
-      <div class="package-grid">
-
-        <div class="card">
-
-          <div class="speed">10 Mbps</div>
-
-          <div class="price">৳500</div>
-
-          <ul>
-            <li>Unlimited Data</li>
-            <li>24/7 Support</li>
-            <li>Free Router Setup</li>
-          </ul>
+            <!-- কার্ড ৩ -->
+            <div class="package-card">
+                <div>
+                    <h3>এন্টারপ্রাইজ প্যাক</h3>
+                    <div class="speed">100 Mbps</div>
+                    <p class="price">৳ ১,৫০০ / মাস</p>
+                </div>
+                <div>
+                    <ul>
+                        <li>সম্পূর্ণ ডেডিকেটেড ব্যান্ডউইথ</li>
+                        <li>কর্পোরেট ও মাল্টিপল ডিভাইস ফ্রেন্ডলি</li>
+                        <li>ফ্রি রিয়েল আইপি (Real IP)</li>
+                    </ul>
+                    <a href="#contact" class="btn-buy">সংযোগ নিন</a>
+                </div>
+            </div>
 
         </div>
+    </section>
 
-        <div class="card">
-
-          <div class="speed">20 Mbps</div>
-
-          <div class="price">৳800</div>
-
-          <ul>
-            <li>Unlimited Data</li>
-            <li>24/7 Support</li>
-            <li>HD Streaming</li>
-          </ul>
-
+    <!-- কভারেজ এরিয়া সেকশন (ট্যাব সহ) -->
+    <section id="coverage" class="coverage">
+        <h2>আমাদের কভারেজ এরিয়া</h2>
+        <p>আপনার বিভাগটি নির্বাচন করে সাব-এরিয়া বা আমাদের কভারেজ এলাকা দেখে নিন:</p>
+        
+        <!-- বিভাগ বাটনসমূহ -->
+        <div class="division-tabs">
+            <button class="tab-btn active" onclick="showAreas('dhaka', this)">Dhaka</button>
+            <button class="tab-btn" onclick="showAreas('chittagong', this)">Chittagong</button>
+            <button class="tab-btn" onclick="showAreas('sylhet', this)">Sylhet</button>
+            <button class="tab-btn" onclick="showAreas('rajshahi', this)">Rajshahi</button>
         </div>
 
-        <div class="card">
-
-          <div class="speed">50 Mbps</div>
-
-          <div class="price">৳1200</div>
-
-          <ul>
-            <li>Ultra Fast Speed</li>
-            <li>Gaming Optimized</li>
-            <li>Priority Support</li>
-          </ul>
-
+        <!-- সাব এরিয়া দেখার গ্রিড -->
+        <div class="area-grid" id="areaGrid">
+            <!-- জাভাস্ক্রিপ্ট এর মাধ্যমে ডাটা লোড হবে -->
         </div>
+    </section>
 
-      </div>
+    <!-- যোগাযোগ সেকশন -->
+    <section id="contact" class="contact">
+        <h2>সরাসরি আমাদের সাথে যুক্ত হোন</h2>
+        <p>নতুন ইন্টারনেট সংযোগ অথবা যেকোনো সাপোর্টের জন্য কল করুন:</p>
+        <p><strong>০১৭০০-০০০০০০</strong></p>
+        <p style="margin-top: 15px; font-size: 14px;">অফিস: বাড়ি-১২, রোড-০৫, ঢাকা, বাংলাদেশ।</p>
+    </section>
 
-    </div>
+    <!-- ফুটার -->
+    <footer>
+        <p>&copy; 2026 NetSpeed Internet. সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
 
-  </section>
+    <!-- জাভাস্ক্রিপ্ট কোড -->
+    <script>
+        const areaData = {
+            dhaka: ['মিরপুর', 'উত্তরা', 'গুলশান', 'ধানমন্ডি', 'মোহাম্মদপুর', 'বাড্ডা', 'খিলগাঁও', 'পুরান ঢাকা'],
+            chittagong: ['জিইসি মোড়', 'হালিশহর', 'খুলশী', 'আগ্রাবাদ', 'চকবাজার', 'নাসিরাবাদ', 'পতেঙ্গা'],
+            sylhet: ['জিন্দাবাজার', 'উপশহর', 'আম্বরখানা', 'কুমারগাঁও', 'শিবগঞ্জ', 'বন্দরবাজার'],
+            rajshahi: ['কোর্ট স্টেশন', 'উপশহর', 'নিউ মার্কেট', 'কাদিরগঞ্জ', 'সাহেব বাজার', 'মতিহার']
+        };
 
-  <!-- COVERAGE -->
+        function showAreas(division, buttonElement) {
+            const grid = document.getElementById('areaGrid');
+            grid.innerHTML = ''; 
 
-  <section id="coverage">
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            buttonElement.classList.add('active');
 
-    <div class="container">
+            areaData[division].forEach(area => {
+                const card = document.createElement('div');
+                card.className = 'area-card';
+                card.innerText = area;
+                grid.appendChild(card);
+            });
+        }
 
-      <h2 class="section-title">
-        Coverage Area
-      </h2>
-
-      <div class="coverage-grid">
-
-        <div class="coverage-box">Kaliganj</div>
-        <div class="coverage-box">Gazipur</div>
-        <div class="coverage-box">Dhaka</div>
-        <div class="coverage-box">Mirpur</div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- APPLY -->
-
-  <section>
-
-    <div class="container" style="text-align:center;">
-
-      <h2 class="section-title">
-        New Internet Connection
-      </h2>
-
-      <a href="apply.html" class="btn btn-primary">
-        Apply For New Line
-      </a>
-
-    </div>
-
-  </section>
-
-  <!-- FTP -->
-
-  <section>
-
-    <div class="container">
-
-      <h2 class="section-title">
-        Free FTP Server
-      </h2>
-
-      <div class="ftp-grid">
-
-        <div class="ftp-card">
-          🎬 Movie Server
-        </div>
-
-        <div class="ftp-card">
-          📺 Live TV
-        </div>
-
-        <div class="ftp-card">
-          🎮 Game Server
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- CONTACT -->
-
-  <section id="contact">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        Contact Us
-      </h2>
-
-      <div class="contact-grid">
-
-        <div class="contact-box">
-          📞 018XXXXXXXX
-        </div>
-
-        <div class="contact-box">
-          ✉ support@example.com
-        </div>
-
-        <div class="contact-box">
-          📍 Kaliganj, Bangladesh
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- LOGIN -->
-
-  <section>
-
-    <div class="container">
-
-      <h2 class="section-title">
-        Login Access
-      </h2>
-
-      <div class="login-grid">
-
-        <a href="admin.html" class="login-box">
-
-          <div class="icon">🖥️</div>
-
-          <div class="text">
-            Admin Login
-          </div>
-
-        </a>
-
-        <a href="customer-login.html" class="login-box">
-
-          <div class="icon">👤</div>
-
-          <div class="text">
-            Customer Login
-          </div>
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <p>© 2026 Net Connection BD</p>
-
-    <p>High Speed Fiber Internet Service Provider</p>
-
-  </footer>
+        window.onload = function() {
+            const defaultBtn = document.querySelector('.tab-btn');
+            showAreas('dhaka', defaultBtn);
+        };
+    </script>
 
 </body>
 </html>
