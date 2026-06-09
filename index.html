@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NetSpeed — Next Gen Internet</title>
     <style>
-        /* আধুনিক গ্লোবাল রিসেট */
-        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+        /* Modern Global Reset */
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Hind Siliguri', 'Segoe UI', sans-serif;
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: #0f172a; /* ডার্ক ব্যাকগ্রাউন্ড */
+            background-color: #0f172a; /* Dark Background */
             color: #f8fafc;
             overflow-x: hidden;
-            padding-top: 30px; /* একদম ওপরের লগইন বারের জন্য একটু স্পেস */
+            padding-top: 30px; /* Space for the top mini login button */
         }
 
-        /* একদম ওপরের ছোট লগইন বার */
+        /* Top Mini Bar for Customer Login */
         .top-mini-bar {
             position: absolute;
             top: 8px;
@@ -38,7 +38,7 @@
             padding: 4px 14px;
             text-decoration: none;
             border-radius: 4px;
-            font-size: 12px; /* ছোট সাইজ */
+            font-size: 12px;
             font-weight: 500;
             transition: all 0.2s ease;
             display: inline-flex;
@@ -58,7 +58,7 @@
             box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
         }
 
-        /* গ্লাস-মরফিজম হেডার */
+        /* Glassmorphism Header */
         header {
             background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(12px);
@@ -100,7 +100,7 @@
             color: #38bdf8;
         }
 
-        /* আল্ট্রা-মডার্ন হিরো সেকশন */
+        /* Ultra-Modern Hero Section */
         .hero {
             position: relative;
             height: 85vh;
@@ -134,7 +134,7 @@
             font-weight: 400;
         }
 
-        /* গ্রেডিয়েন্ট বাটন */
+        /* Gradient Button */
         .btn {
             background: linear-gradient(135deg, #38bdf8, #6366f1);
             color: white;
@@ -153,7 +153,7 @@
             box-shadow: 0 6px 25px rgba(56, 189, 248, 0.5);
         }
 
-        /* প্রিমিয়াম কার্ড সেকশন */
+        /* Premium Packages Section */
         .packages {
             padding: 100px 8% 60px 8%;
             text-align: center;
@@ -175,7 +175,7 @@
             flex-wrap: wrap;
         }
 
-        /* গ্লাস কার্ড ডিজাইন */
+        /* Glass Card Design */
         .package-card {
             background: rgba(30, 41, 59, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -197,7 +197,7 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(99, 102, 241, 0.1);
         }
 
-        /* পপুলার কার্ডের জন্য স্পেশাল গ্লো */
+        /* Special Glow for Popular Card */
         .package-card.popular {
             border: 1px solid rgba(99, 102, 241, 0.4);
             background: rgba(30, 41, 59, 0.7);
@@ -290,7 +290,7 @@
             color: #fff;
         }
 
-        /* ডায়নামিক কভারেজ এরিয়া সেকশন */
+        /* Coverage Area Section */
         .coverage {
             padding: 60px 8% 100px 8%;
             text-align: center;
@@ -311,7 +311,7 @@
             font-size: 16px;
         }
 
-        /* বিভাগ ট্যাব বাটন */
+        /* Division Tabs Buttons */
         .division-tabs {
             display: flex;
             justify-content: center;
@@ -344,7 +344,7 @@
             box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
         }
 
-        /* সাব-এরিয়া গ্রিড লেআউট */
+        /* Sub-Area Grid Layout */
         .area-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -387,7 +387,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* যোগাযোগ সেকশন */
+        /* Contact Section */
         .contact {
             background: radial-gradient(circle at bottom, rgba(56, 189, 248, 0.08) 0%, transparent 50%);
             padding: 80px 8%;
@@ -411,7 +411,7 @@
             font-size: 20px;
         }
 
-        /* মিনিমাল ফুটার */
+        /* Minimal Footer */
         footer {
             background: #090d16;
             color: #64748b;
@@ -421,14 +421,14 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* রেসপন্সিভ ডিজাইন */
+        /* Responsive Design */
         @media (max-width: 768px) {
             body {
                 padding-top: 40px;
             }
             .top-mini-bar {
                 right: 50%;
-                transform: translateX(50%); /* মোবাইলে মাঝখানে চলে আসবে */
+                transform: translateX(50%); /* Centered on mobile devices */
                 top: 10px;
             }
             header {
@@ -463,99 +463,99 @@
 </head>
 <body>
 
-    <!-- একদম ওপরের ছোট কাস্টমার লগইন বাটন -->
+    <!-- Top Corner Mini Login Button -->
     <div class="top-mini-bar">
         <a href="#login" class="btn-login">Customer Login</a>
     </div>
 
-    <!-- হেডার বা নেভিগেশন বার -->
+    <!-- Header Navigation Bar -->
     <header>
         <div class="logo">NetSpeed</div>
         <nav>
             <ul>
-                <li><a href="#home">হোম</a></li>
-                <li><a href="#packages">প্যাকেজ</a></li>
-                <li><a href="#coverage">এরিয়া</a></li>
-                <li><a href="#contact">যোগাযোগ</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#coverage">Coverage</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- হিরো সেকশন -->
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>গতির দুনিয়ায় আগামী প্রজন্মের সংযোগ</h1>
-            <p>অপ্রতিহত স্পিড আর নিরবচ্ছিন্ন বাফারিং-মুক্ত ইন্টারনেটের অভিজ্ঞতা নিন NetSpeed-এর সাথে।</p>
-            <a href="#packages" class="btn">প্যাকেজগুলো দেখুন</a>
+            <h1>Next Gen Connectivity For Ultimate Speed</h1>
+            <p>Experience uninterrupted browsing, ultra-low ping gaming, and seamless 4K streaming with NetSpeed.</p>
+            <a href="#packages" class="btn">Explore Packages</a>
         </div>
     </section>
 
-    <!-- প্যাকেজ সেকশন -->
+    <!-- Packages Section -->
     <section id="packages" class="packages">
-        <h2>আপনার জন্য সেরা প্ল্যানটি বেছে নিন</h2>
+        <h2>Choose the Best Plan for You</h2>
         <div class="package-container">
             
-            <!-- কার্ড ১ -->
+            <!-- Card 1 -->
             <div class="package-card">
                 <div>
-                    <h3>স্টার্টার প্যাক</h3>
+                    <h3>Starter Pack</h3>
                     <div class="speed">20 Mbps</div>
-                    <p class="price">৳ ৫০০ / মাস</p>
+                    <p class="price">৳ 500 / Month</p>
                 </div>
                 <div>
                     <ul>
-                        <li>স্মুথ ফেসবুক ও ইউটিউব স্ট্রিমিং</li>
-                        <li>২৪/৭ ডেডিকেটেড সাপোর্ট</li>
-                        <li>ফ্রি অপটিক্যাল ফাইবার সংযোগ</li>
+                        <li>Smooth Facebook & YouTube streaming</li>
+                        <li>24/7 Dedicated Support</li>
+                        <li>Free Optical Fiber Connection</li>
                     </ul>
-                    <a href="#contact" class="btn-buy">সংযোগ নিন</a>
+                    <a href="#contact" class="btn-buy">Get Connected</a>
                 </div>
             </div>
 
-            <!-- কার্ড ২ (পপুলার) -->
+            <!-- Card 2 (Popular) -->
             <div class="package-card popular">
-                <span class="badge">সর্বাধিক জনপ্রিয়</span>
+                <span class="badge">Most Popular</span>
                 <div>
-                    <h3>গেমিং ও প্রো</h3>
+                    <h3>Gaming & Pro</h3>
                     <div class="speed">50 Mbps</div>
-                    <p class="price">৳ ৮০০ / মাস</p>
+                    <p class="price">৳ 800 / Month</p>
                 </div>
                 <div>
                     <ul>
-                        <li>আল্ট্রা-লো পিং গেমিং সুবিধা</li>
-                        <li>আনলিমিটেড বাফারলেস ব্রাউজিং</li>
-                        <li>প্রায়োরিটি কাস্টমার সাপোর্ট</li>
+                        <li>Ultra-low ping gaming optimization</li>
+                        <li>Unlimited buffer-less browsing</li>
+                        <li>Priority Customer Support</li>
                     </ul>
-                    <a href="#contact" class="btn-buy">সংযোগ নিন</a>
+                    <a href="#contact" class="btn-buy">Get Connected</a>
                 </div>
             </div>
 
-            <!-- কার্ড ৩ -->
+            <!-- Card 3 -->
             <div class="package-card">
                 <div>
-                    <h3>এন্টারপ্রাইজ প্যাক</h3>
+                    <h3>Enterprise Pack</h3>
                     <div class="speed">100 Mbps</div>
-                    <p class="price">৳ ১,৫০০ / মাস</p>
+                    <p class="price">৳ 1,500 / Month</p>
                 </div>
                 <div>
                     <ul>
-                        <li>সম্পূর্ণ ডেডিকেটেড ব্যান্ডউইথ</li>
-                        <li>কর্পোরেট ও মাল্টিপল ডিভাইস ফ্রেন্ডলি</li>
-                        <li>ফ্রি রিয়েল আইপি (Real IP)</li>
+                        <li>Fully dedicated bandwidth allocation</li>
+                        <li>Corporate & multi-device friendly</li>
+                        <li>Free Static Real IP included</li>
                     </ul>
-                    <a href="#contact" class="btn-buy">সংযোগ নিন</a>
+                    <a href="#contact" class="btn-buy">Get Connected</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- কভারেজ এরিয়া সেকশন (ট্যাব সহ) -->
+    <!-- Coverage Area Section -->
     <section id="coverage" class="coverage">
-        <h2>আমাদের কভারেজ এরিয়া</h2>
-        <p>আপনার বিভাগটি নির্বাচন করে সাব-এরিয়া বা আমাদের কভারেজ এলাকা দেখে নিন:</p>
+        <h2>Our Coverage Network</h2>
+        <p>Select your division to check out the sub-areas currently covered by our services:</p>
         
-        <!-- বিভাগ বাটনসমূহ -->
+        <!-- Division Tabs Buttons -->
         <div class="division-tabs">
             <button class="tab-btn active" onclick="showAreas('dhaka', this)">Dhaka</button>
             <button class="tab-btn" onclick="showAreas('chittagong', this)">Chittagong</button>
@@ -563,32 +563,33 @@
             <button class="tab-btn" onclick="showAreas('rajshahi', this)">Rajshahi</button>
         </div>
 
-        <!-- সাব এরিয়া দেখার গ্রিড -->
+        <!-- Dynamic Sub-Area Grid -->
         <div class="area-grid" id="areaGrid">
-            <!-- জাভাস্ক্রিপ্ট এর মাধ্যমে ডাটা লোড হবে -->
+            <!-- JavaScript loads sub-areas here -->
         </div>
     </section>
 
-    <!-- যোগাযোগ সেকশন -->
+    <!-- Contact Section -->
     <section id="contact" class="contact">
-        <h2>সরাসরি আমাদের সাথে যুক্ত হোন</h2>
-        <p>নতুন ইন্টারনেট সংযোগ অথবা যেকোনো সাপোর্টের জন্য কল করুন:</p>
-        <p><strong>০১৭০০-০০০০০০</strong></p>
-        <p style="margin-top: 15px; font-size: 14px;">অফিস: বাড়ি-১২, রোড-০৫, ঢাকা, বাংলাদেশ।</p>
+        <h2>Get in Touch Directly</h2>
+        <p>For new internet connections or any customer support queries, feel free to call us:</p>
+        <p><strong>01700-000000</strong></p>
+        <p style="margin-top: 15px; font-size: 14px;">Office: House-12, Road-05, Dhaka, Bangladesh.</p>
     </section>
 
-    <!-- ফুটার -->
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 NetSpeed Internet. সর্বস্বত্ব সংরক্ষিত।</p>
+        <p>&copy; 2026 NetSpeed Internet. All Rights Reserved.</p>
     </footer>
 
-    <!-- জাভাস্ক্রিপ্ট কোড -->
+    <!-- JavaScript For Smooth Dynamic Tab Filtering -->
     <script>
+        // Database for Sub-areas under divisions
         const areaData = {
-            dhaka: ['মিরপুর', 'উত্তরা', 'গুলশান', 'ধানমন্ডি', 'মোহাম্মদপুর', 'বাড্ডা', 'খিলগাঁও', 'পুরান ঢাকা'],
-            chittagong: ['জিইসি মোড়', 'হালিশহর', 'খুলশী', 'আগ্রাবাদ', 'চকবাজার', 'নাসিরাবাদ', 'পতেঙ্গা'],
-            sylhet: ['জিন্দাবাজার', 'উপশহর', 'আম্বরখানা', 'কুমারগাঁও', 'শিবগঞ্জ', 'বন্দরবাজার'],
-            rajshahi: ['কোর্ট স্টেশন', 'উপশহর', 'নিউ মার্কেট', 'কাদিরগঞ্জ', 'সাহেব বাজার', 'মতিহার']
+            dhaka: ['Mirpur', 'Uttara', 'Gulshan', 'Dhanmondi', 'Mohammadpur', 'Badda', 'Khilgaon', 'Old Dhaka'],
+            chittagong: ['GEC More', 'Halishahar', 'Khulshi', 'Agrabad', 'Chawkbazar', 'Nasirabad', 'Patenga'],
+            sylhet: ['Zindabazar', 'Uposhohor', 'Amberkhana', 'Kumargaon', 'Shibgonj', 'Bandar Bazar'],
+            rajshahi: ['Court Station', 'Uposhohor', 'New Market', 'Kadirgonj', 'Shaheb Bazar', 'Motihar']
         };
 
         function showAreas(division, buttonElement) {
@@ -607,6 +608,7 @@
             });
         }
 
+        // Default layout load (Dhaka)
         window.onload = function() {
             const defaultBtn = document.querySelector('.tab-btn');
             showAreas('dhaka', defaultBtn);
