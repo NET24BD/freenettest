@@ -4,23 +4,23 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Login — MyShop</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&family=Playfair+Display:wght=700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#04080f;
-  --bg2:#070d1a;
-  --panel:rgba(6,14,30,0.85);
-  --border:rgba(30,100,255,0.18);
-  --blue:#1e64ff;
-  --blue2:#4d8aff;
-  --blue3:#0a2a6e;
-  --black:#04080f;
-  --text:#e4eeff;
-  --muted:#4a6080;
-  --input-bg:rgba(10,25,60,0.6);
-  --green:#22d98a;
-  --red:#ff4f6a;
+  --bg:#0a0514; /* পরিবর্তন: ডার্ক ডিপ পার্পল */
+  --bg2:#120a24; /* পরিবর্তন: ডিপ পার্পল ২ */
+  --panel:rgba(18, 10, 36, 0.85); /* পরিবর্তন: প্যানেল ব্যাকগ্রাউন্ড */
+  --border:rgba(0, 242, 254, 0.18); /* পরিবর্তন: নিয়ন সায়ান বর্ডার */
+  --blue:#7000ff; /* পরিবর্তন: মেইন পার্পল */
+  --blue2:#00f2fe; /* পরিবর্তন: নিয়ন সায়ান */
+  --blue3:#2d0066; /* পরিবর্তন: ডার্ক পার্পল */
+  --black:#0a0514;
+  --text:#f0eaff; /* পরিবর্তন: লাইট পার্পল-হোয়াইট টেক্সট */
+  --muted:#7c6e94; /* পরিবর্তন: মিউটেড পার্পল গ্রে */
+  --input-bg:rgba(25, 15, 48, 0.6); /* পরিবর্তন: ইনপুট ব্যাকগ্রাউন্ড */
+  --green:#00ff9d; /* পরিবর্তন: নিয়ন গ্রিন */
+  --red:#ff3366; /* পরিবর্তন: নিয়ন রেড */
 }
 body{
   font-family:'Inter',sans-serif;
@@ -39,9 +39,9 @@ body{
   position:fixed;top:0;left:0;right:0;z-index:20;
   display:flex;justify-content:space-between;align-items:center;
   padding:13px 28px;
-  background:rgba(4,8,15,0.75);
+  background:rgba(10,5,20,0.75);
   backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(30,100,255,0.12);
+  border-bottom:1px solid rgba(0, 242, 254, 0.12);
 }
 .topbar-brand{
   font-family:'Playfair Display',serif;
@@ -59,13 +59,13 @@ body{
   border-radius:20px;
   padding:48px 44px 42px;
   backdrop-filter:blur(20px);
-  box-shadow:0 0 0 1px rgba(30,100,255,0.08),0 30px 80px rgba(0,0,10,0.7),0 0 60px rgba(30,100,255,0.06);
+  box-shadow:0 0 0 1px rgba(0, 242, 254, 0.08),0 30px 80px rgba(5,0,15,0.7),0 0 60px rgba(112, 0, 255, 0.06);
   animation:slideUp 0.6s cubic-bezier(0.22,1,0.36,1) both;
 }
 @keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 .card::before{
   content:'';position:absolute;inset:-1px;border-radius:21px;
-  background:linear-gradient(135deg,rgba(30,100,255,0.3),transparent 50%,rgba(77,138,255,0.1));
+  background:linear-gradient(135deg,rgba(112, 0, 255, 0.3),transparent 50%,rgba(0, 242, 254, 0.1));
   opacity:0;transition:opacity 0.4s;z-index:-1;pointer-events:none;
 }
 .card:hover::before{opacity:1}
@@ -76,7 +76,7 @@ body{
   background:linear-gradient(135deg,var(--blue),var(--blue2));
   display:flex;align-items:center;justify-content:center;
   margin-bottom:24px;
-  box-shadow:0 0 30px rgba(30,100,255,0.4);
+  box-shadow:0 0 30px rgba(112, 0, 255, 0.4);
   animation:logoPop 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.2s both;
 }
 @keyframes logoPop{from{transform:scale(0.4) rotate(-20deg);opacity:0}to{transform:scale(1);opacity:1}}
@@ -116,21 +116,21 @@ label{
 input[type=text],input[type=password]{
   width:100%;
   background:var(--input-bg);
-  border:1px solid rgba(30,100,255,0.15);
+  border:1px solid rgba(0, 242, 254, 0.15);
   border-radius:10px;
   padding:12px 40px 12px 40px;
   font-family:'Inter',sans-serif;font-size:14px;color:var(--text);
   outline:none;
   transition:border-color 0.25s,box-shadow 0.25s,background 0.25s;
 }
-input::placeholder{color:rgba(74,96,128,0.5);}
+input::placeholder{color:rgba(124, 110, 148, 0.5);}
 input:focus{
   border-color:var(--blue);
-  background:rgba(30,100,255,0.06);
-  box-shadow:0 0 0 3px rgba(30,100,255,0.12);
+  background:rgba(112, 0, 255, 0.06);
+  box-shadow:0 0 0 3px rgba(112, 0, 255, 0.12);
 }
-input.vi{border-color:rgba(34,217,138,0.45);}
-input.vx{border-color:rgba(255,79,106,0.55);box-shadow:0 0 0 3px rgba(255,79,106,0.1);}
+input.vi{border-color:rgba(0, 255, 157, 0.45);}
+input.vx{border-color:rgba(255, 51, 102, 0.55);box-shadow:0 0 0 3px rgba(255, 51, 102, 0.1);}
  
 .eye-btn{
   position:absolute;right:11px;
@@ -155,7 +155,7 @@ input.vx{border-color:rgba(255,79,106,0.55);box-shadow:0 0 0 3px rgba(255,79,106
 /* Remember row */
 .row{display:flex;justify-content:space-between;align-items:center;margin:6px 0 22px;}
 .remember{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);cursor:pointer;user-select:none;}
-.remember input[type=checkbox]{width:14px;height:14px;padding:0;accent-color:var(--blue);}
+.remember input[type=checkbox]{width:14px;height:14px;padding:0;accent-color:var(--blue2);}
  
 /* Button */
 .btn{
@@ -164,19 +164,19 @@ input.vx{border-color:rgba(255,79,106,0.55);box-shadow:0 0 0 3px rgba(255,79,106
   border:none;border-radius:10px;
   font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;
   color:#fff;cursor:pointer;letter-spacing:0.3px;
-  box-shadow:0 4px 22px rgba(30,100,255,0.35);
+  box-shadow:0 4px 22px rgba(112, 0, 255, 0.35);
   transition:transform 0.15s,box-shadow 0.25s;
   position:relative;overflow:hidden;
 }
 .btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.1);opacity:0;transition:opacity 0.2s;}
-.btn:hover{transform:translateY(-1.5px);box-shadow:0 8px 30px rgba(30,100,255,0.5);}
+.btn:hover{transform:translateY(-1.5px);box-shadow:0 8px 30px rgba(0, 242, 254, 0.4);}
 .btn:hover::after{opacity:1;}
 .btn:active{transform:translateY(0);}
 .btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
 .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.3);transform:scale(0);animation:rip 0.55s linear;pointer-events:none;}
 @keyframes rip{to{transform:scale(4);opacity:0;}}
  
-.footer-note{text-align:center;margin-top:14px;font-size:11.5px;color:rgba(74,96,128,0.6);}
+.footer-note{text-align:center;margin-top:14px;font-size:11.5px;color:rgba(124, 110, 148, 0.6);}
  
 /* ── Page Loading Screen (initial) ── */
 #loading-screen{
@@ -189,11 +189,11 @@ input.vx{border-color:rgba(255,79,106,0.55);box-shadow:0 0 0 3px rgba(255,79,106
   width:64px;height:64px;border-radius:50%;
   background:linear-gradient(135deg,var(--blue),var(--blue2));
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 0 40px rgba(30,100,255,0.4);
+  box-shadow:0 0 40px rgba(112, 0, 255, 0.4);
   animation:ldPulse 1.5s ease-in-out infinite;
 }
 .ld-logo svg{width:28px;height:28px;fill:#fff;}
-@keyframes ldPulse{0%,100%{transform:scale(1);box-shadow:0 0 40px rgba(30,100,255,0.4)}50%{transform:scale(1.1);box-shadow:0 0 70px rgba(30,100,255,0.6)}}
+@keyframes ldPulse{0%,100%{transform:scale(1);box-shadow:0 0 40px rgba(112, 0, 255, 0.4)}50%{transform:scale(1.1);box-shadow:0 0 70px rgba(0, 242, 254, 0.4)}}
 .ld-bar-wrap{width:180px;height:3px;background:rgba(255,255,255,0.06);border-radius:99px;overflow:hidden;}
 .ld-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--blue2));border-radius:99px;animation:ldFill 2s cubic-bezier(0.4,0,0.2,1) forwards;}
 @keyframes ldFill{to{width:100%;}}
@@ -220,12 +220,12 @@ input.vx{border-color:rgba(255,79,106,0.55);box-shadow:0 0 0 3px rgba(255,79,106
  
 /* Rotating orbit rings */
 .orbit{
-  position:absolute;border-radius:50%;border:1.5px solid rgba(30,100,255,0.25);
+  position:absolute;border-radius:50%;border:1.5px solid rgba(0, 242, 254, 0.25);
   animation:spin linear infinite;
 }
 .orbit1{width:100%;height:100%;animation-duration:4s;}
-.orbit2{width:72%;height:72%;animation-duration:3s;animation-direction:reverse;border-color:rgba(77,138,255,0.2);}
-.orbit3{width:44%;height:44%;animation-duration:2s;border-color:rgba(30,100,255,0.35);}
+.orbit2{width:72%;height:72%;animation-duration:3s;animation-direction:reverse;border-color:rgba(112, 0, 255, 0.2);}
+.orbit3{width:44%;height:44%;animation-duration:2s;border-color:rgba(0, 242, 254, 0.35);}
 @keyframes spin{to{transform:rotate(360deg)}}
  
 /* Orbit dots */
@@ -242,18 +242,18 @@ input.vx{border-color:rgba(255,79,106,0.55);box-shadow:0 0 0 3px rgba(255,79,106
   width:56px;height:56px;border-radius:50%;
   background:linear-gradient(135deg,var(--blue),var(--blue2));
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 0 30px rgba(30,100,255,0.6);
+  box-shadow:0 0 30px rgba(112, 0, 255, 0.6);
   animation:centerPulse 1.4s ease-in-out infinite;
 }
 .conn-center svg{width:26px;height:26px;fill:#fff;}
-@keyframes centerPulse{0%,100%{box-shadow:0 0 30px rgba(30,100,255,0.5)}50%{box-shadow:0 0 55px rgba(30,100,255,0.8)}}
+@keyframes centerPulse{0%,100%{box-shadow:0 0 30px rgba(112, 0, 255, 0.5)}50%{box-shadow:0 0 55px rgba(0, 242, 254, 0.8)}}
  
 /* Scan line */
 .scan-line{
   position:absolute;width:100%;height:1.5px;
-  background:linear-gradient(90deg,transparent,var(--blue),transparent);
+  background:linear-gradient(90deg,transparent,var(--blue2),transparent);
   top:50%;animation:scan 2s ease-in-out infinite;
-  box-shadow:0 0 8px var(--blue);
+  box-shadow:0 0 8px var(--blue2);
 }
 @keyframes scan{
   0%{transform:translateY(-68px);opacity:0}
@@ -266,13 +266,13 @@ input.vx{border-color:rgba(255,79,106,0.55);box-shadow:0 0 0 3px rgba(255,79,106
 .conn-pics{display:flex;gap:14px;align-items:center;}
 .conn-pic{
   width:52px;height:52px;border-radius:12px;
-  border:1.5px solid rgba(30,100,255,0.25);
+  border:1.5px solid rgba(0, 242, 254, 0.25);
   display:flex;align-items:center;justify-content:center;
   font-size:24px;
-  background:rgba(10,25,60,0.5);
+  background:rgba(25, 15, 48, 0.5);
   opacity:0;transform:translateY(12px);
   animation:picIn 0.4s ease forwards;
-  box-shadow:0 0 16px rgba(30,100,255,0.15);
+  box-shadow:0 0 16px rgba(0, 242, 254, 0.15);
 }
 .conn-pic:nth-child(1){animation-delay:0.3s}
 .conn-pic:nth-child(2){animation-delay:0.5s}
@@ -307,7 +307,7 @@ input.vx{border-color:rgba(255,79,106,0.55);box-shadow:0 0 0 3px rgba(255,79,106
   height:100%;width:0%;
   background:linear-gradient(90deg,var(--blue),var(--blue2));
   border-radius:99px;
-  box-shadow:0 0 8px var(--blue);
+  box-shadow:0 0 8px var(--blue2);
 }
 .conn-bar.run{animation:barFill 3s cubic-bezier(0.4,0,0.2,1) 0.6s forwards;}
 @keyframes barFill{to{width:100%;}}
@@ -320,13 +320,19 @@ input.vx{border-color:rgba(255,79,106,0.55);box-shadow:0 0 0 3px rgba(255,79,106
 .chip{
   font-size:11px;padding:5px 12px;
   border-radius:99px;
-  border:1px solid rgba(30,100,255,0.25);
+  border:1px solid rgba(0, 242, 254, 0.25);
   color:var(--muted);letter-spacing:0.5px;
   display:flex;align-items:center;gap:5px;
 }
 .chip-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pdot 1.8s ease-in-out infinite;}
  
-/* ── Animated Background Scene ── */
+/* ── Shake Animation Keyframes ── */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
 @media(max-width:480px){.card{width:92vw;padding:36px 22px 32px;}}
 </style>
 </head>
@@ -391,7 +397,7 @@ input.vx{border-color:rgba(255,79,106,0.55);box-shadow:0 0 0 3px rgba(255,79,106
   <div class="live-clock">
     <div class="live-dot"></div>
     <span id="clock">--:--:--</span>
-    <span id="datestr" style="color:rgba(74,96,128,0.7);margin-left:4px"></span>
+    <span id="datestr" style="color:rgba(124, 110, 148, 0.7);margin-left:4px"></span>
   </div>
 </div>
  
@@ -505,7 +511,7 @@ function drawTree(x, y, size, angle) {
   ctx.save();
   ctx.translate(x, y);
   // Trunk
-  ctx.strokeStyle = 'rgba(20,60,140,0.6)';
+  ctx.strokeStyle = 'rgba(112,0,255,0.4)'; /* পরিবর্তন: পার্পল ট্রাঙ্ক */
   ctx.lineWidth = size * 0.07;
   ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(0,-size*0.45); ctx.stroke();
   // Branches with sway
@@ -513,19 +519,19 @@ function drawTree(x, y, size, angle) {
   const sw = Math.sin(angle)*0.06;
   // Left branch
   ctx.save(); ctx.rotate(-0.5+sw);
-  ctx.strokeStyle='rgba(20,60,140,0.45)'; ctx.lineWidth=size*0.04;
+  ctx.strokeStyle='rgba(112,0,255,0.3)'; ctx.lineWidth=size*0.04;
   ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(-size*0.25,-size*0.2); ctx.stroke();
   ctx.restore();
   // Right branch
   ctx.save(); ctx.rotate(0.45+sw);
-  ctx.strokeStyle='rgba(20,60,140,0.45)'; ctx.lineWidth=size*0.04;
+  ctx.strokeStyle='rgba(112,0,255,0.3)'; ctx.lineWidth=size*0.04;
   ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(size*0.25,-size*0.2); ctx.stroke();
   ctx.restore();
   ctx.restore();
   // Foliage (3 circles)
   const grd = ctx.createRadialGradient(0,-size*0.7,0,0,-size*0.7,size*0.38);
-  grd.addColorStop(0,'rgba(30,100,255,0.18)');
-  grd.addColorStop(1,'rgba(10,30,80,0.0)');
+  grd.addColorStop(0,'rgba(0, 242, 254, 0.15)'); /* পরিবর্তন: সায়ান গ্লো */
+  grd.addColorStop(1,'rgba(18,10,36,0.0)');
   ctx.fillStyle = grd;
   ctx.beginPath(); ctx.arc(0,-size*0.7,size*0.38,0,Math.PI*2); ctx.fill();
   ctx.beginPath(); ctx.arc(-size*0.22,-size*0.58,size*0.26,0,Math.PI*2); ctx.fill();
@@ -538,15 +544,15 @@ function drawCat(x, y, frame, blink, dir, state) {
   ctx.translate(x, y);
   if(dir < 0) { ctx.scale(-1,1); }
  
-  const blue = 'rgba(50,120,255,0.75)';
-  const blue2 = 'rgba(100,160,255,0.85)';
-  const dark = 'rgba(20,60,140,0.9)';
+  const blue = 'rgba(112, 0, 255, 0.75)'; /* পরিবর্তন: বিড়ালের রঙ পার্পল */
+  const blue2 = 'rgba(0, 242, 254, 0.85)'; /* পরিবর্তন: বিড়ালের হাইলাইট সায়ান */
+  const dark = 'rgba(25, 15, 48, 0.9)';
  
   // Shadow
   ctx.ellipse && (() => {
     ctx.beginPath();
     ctx.ellipse(0,2,18,4,0,0,Math.PI*2);
-    ctx.fillStyle='rgba(0,10,40,0.35)'; ctx.fill();
+    ctx.fillStyle='rgba(5,0,15,0.35)'; ctx.fill();
   })();
  
   // Tail
@@ -603,27 +609,27 @@ function drawCat(x, y, frame, blink, dir, state) {
     ctx.moveTo(i===0?-4:-10+17,-22);
     ctx.lineTo(ex+( i===0?1:-1),ey+3);
     ctx.lineTo(i===0?-10+6:-10+14,-22);
-    ctx.fillStyle='rgba(100,160,255,0.35)'; ctx.fill();
+    ctx.fillStyle='rgba(0, 242, 254, 0.35)'; ctx.fill();
   });
  
   // Eyes
   if(blink < 3) {
     [[-4,-19],[4,-19]].forEach(([ex,ey])=>{
       ctx.beginPath(); ctx.arc(ex,ey,2.5,0,Math.PI*2);
-      ctx.fillStyle='rgba(200,230,255,0.95)'; ctx.fill();
+      ctx.fillStyle='rgba(255,255,255,0.95)'; ctx.fill();
       ctx.beginPath(); ctx.arc(ex+0.5,ey,1.2,0,Math.PI*2);
       ctx.fillStyle=dark; ctx.fill();
     });
   } else {
     [[-4,-19],[4,-19]].forEach(([ex,ey])=>{
       ctx.beginPath(); ctx.moveTo(ex-2.5,ey); ctx.lineTo(ex+2.5,ey);
-      ctx.strokeStyle='rgba(200,230,255,0.7)'; ctx.lineWidth=1.2; ctx.stroke();
+      ctx.strokeStyle='rgba(255,255,255,0.7)'; ctx.lineWidth=1.2; ctx.stroke();
     });
   }
  
   // Nose
   ctx.beginPath(); ctx.moveTo(-1,-17); ctx.lineTo(1,-17); ctx.lineTo(0,-15.5); ctx.closePath();
-  ctx.fillStyle='rgba(180,100,255,0.7)'; ctx.fill();
+  ctx.fillStyle='rgba(112, 0, 255, 0.7)'; ctx.fill();
  
   // Whiskers
   [[-1],[ 1]].forEach(side=>{
@@ -632,7 +638,7 @@ function drawCat(x, y, frame, blink, dir, state) {
       const wy = -17+i*1.5;
       ctx.moveTo(side[0]*1, wy);
       ctx.lineTo(side[0]*12, wy-1+i*0.5);
-      ctx.strokeStyle='rgba(150,200,255,0.4)'; ctx.lineWidth=0.8; ctx.stroke();
+      ctx.strokeStyle='rgba(0, 242, 254, 0.4)'; ctx.lineWidth=0.8; ctx.stroke();
     }
   });
  
@@ -646,19 +652,19 @@ function drawScene() {
   // Stars
   stars.forEach(s=>{
     ctx.beginPath(); ctx.arc(s.x % W, s.y % H, s.r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(100,160,255,${s.o + Math.sin(frame*s.sp)*0.15})`;
+    ctx.fillStyle=`rgba(0, 242, 254, ${s.o + Math.sin(frame*s.sp)*0.15})`; /* পরিবর্তন: সায়ান স্টারস */
     ctx.fill();
   });
  
   // Grid lines (subtle)
-  ctx.strokeStyle='rgba(30,100,255,0.03)';
+  ctx.strokeStyle='rgba(112, 0, 255, 0.03)';
   ctx.lineWidth=1;
   for(let gx=0;gx<W;gx+=80){ ctx.beginPath(); ctx.moveTo(gx,0); ctx.lineTo(gx,H); ctx.stroke(); }
   for(let gy=0;gy<H;gy+=80){ ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(W,gy); ctx.stroke(); }
  
   // Ground line
   const ground = H - 60;
-  ctx.strokeStyle='rgba(30,100,255,0.12)';
+  ctx.strokeStyle='rgba(112, 0, 255, 0.12)';
   ctx.lineWidth=1;
   ctx.beginPath(); ctx.moveTo(0,ground); ctx.lineTo(W,ground); ctx.stroke();
  
@@ -725,7 +731,7 @@ function validatePass(){
   if(v.length>=6)score++;if(v.length>=10)score++;
   if(/[A-Z]/.test(v)&&/[0-9]/.test(v))score++;
   if(/[^A-Za-z0-9]/.test(v))score++;
-  const cols=['#ff4f6a','#ff9a3c','#1e64ff','#22d98a'];
+  const cols=['#ff3366','#ff9a3c','#7000ff','#00ff9d']; /* পরিবর্তন: পাসওয়ার্ড বার কালার */
   const lvls=['Weak','Fair','Good','Strong'];
   bars.forEach((b,i)=>{b.style.width=i<score?'100%':'0%';b.style.background=i<score?cols[score-1]:'transparent';});
   sl.textContent=score>0?lvls[score-1]:'';sl.style.color=score>0?cols[score-1]:'';
@@ -738,8 +744,8 @@ function toggleEye(){
   const vis=inp.type==='password';
   inp.type=vis?'text':'password';
   document.getElementById('eye-svg').innerHTML=vis
-    ?'<path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19M1 1l22 22" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>'
-    :'<path d="M1 12S5 4 12 4s11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/>';
+    ? '<path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19M1 1l22 22" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>'
+    : '<path d="M1 12S5 4 12 4s11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/>';
 }
  
 /* ─── Ripple ─── */
@@ -831,21 +837,6 @@ function handleLogin(e){
       });
   };
   document.head.appendChild(script);
-  return; // stop old code below from running
-  const match=false;
-  if(!match){
-    attempts++;
-    note.textContent='❌ Username or password is incorrect.';
-    document.getElementById('username').classList.replace('vi','vx');
-    document.getElementById('password').classList.replace('vi','vx');
-    btn.style.animation='shake 0.4s';
-    setTimeout(()=>btn.style.animation='',400);
-    return;
-  }
-  btn.disabled=true;
-  btn.innerHTML='<span style="opacity:.7">Signing in...</span>';
-  note.textContent='';
-  setTimeout(()=>showConnecting(uname), 700);
 }
  
 /* ─── Connecting screen ─── */
@@ -865,7 +856,7 @@ function showConnecting(uname){
   function typeConn(){
     if(mi>=connMsgs.length) return;
     const m=connMsgs[mi];
-    if(ci<=m.length){
+    if(m && ci<=m.length){
       el.textContent=m.slice(0,ci); ci++;
       setTimeout(typeConn, 40);
     } else {
@@ -881,11 +872,6 @@ function showConnecting(uname){
 }
  
 document.addEventListener('keydown',e=>{if(e.key==='Enter')handleLogin(e);});
- 
-/* Shake + star-fly keyframes */
-const ks=document.createElement('style');
-ks.textContent='@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}';
-document.head.appendChild(ks);
 </script>
 </body>
 </html>
