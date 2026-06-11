@@ -6,7 +6,7 @@
     <title>NetSpeed — Next Gen Internet</title>
     <style>
         /* Modern Global Reset */
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;500;600;700&display=swap');
 
         * {
             margin: 0;
@@ -20,7 +20,7 @@
             background-color: #0f172a; /* Dark Background */
             color: #f8fafc;
             overflow-x: hidden;
-            padding-top: 30px; /* Space for the top mini login button */
+            padding-top: 30px;
         }
 
         /* Top Mini Bar for Customer Login */
@@ -52,10 +52,10 @@
         }
 
         .btn-login:hover {
-            background: #38bdf8;
-            color: #0f172a;
-            border-color: #38bdf8;
-            box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+            background: #ef4444;
+            color: #ffffff;
+            border-color: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
         }
 
         /* Glassmorphism Header */
@@ -76,7 +76,7 @@
         .logo {
             font-size: 26px;
             font-weight: 700;
-            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            background: linear-gradient(135deg, #ef4444, #f43f5e);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 1px;
@@ -97,7 +97,7 @@
         }
 
         nav ul li a:hover {
-            color: #38bdf8;
+            color: #ef4444;
         }
 
         /* Ultra-Modern Hero Section */
@@ -109,7 +109,7 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+            background: radial-gradient(circle at top, rgba(239, 68, 68, 0.1) 0%, transparent 60%);
         }
 
         .hero-content {
@@ -131,26 +131,25 @@
             font-size: 18px;
             color: #94a3b8;
             margin-bottom: 35px;
-            font-weight: 400;
         }
 
-        /* Gradient Button */
+        /* Red Gradient Button */
         .btn {
-            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            background: linear-gradient(135deg, #ef4444, #b91c1c);
             color: white;
             padding: 14px 35px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.3);
             transition: all 0.3s ease;
             display: inline-block;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(56, 189, 248, 0.5);
+            box-shadow: 0 6px 25px rgba(239, 68, 68, 0.5);
         }
 
         /* Premium Packages Section */
@@ -175,12 +174,10 @@
             flex-wrap: wrap;
         }
 
-        /* Glass Card Design */
         .package-card {
             background: rgba(30, 41, 59, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
             padding: 40px 30px;
             border-radius: 24px;
             width: 340px;
@@ -193,13 +190,12 @@
 
         .package-card:hover {
             transform: translateY(-10px);
-            border-color: rgba(56, 189, 248, 0.2);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(99, 102, 241, 0.1);
+            border-color: rgba(239, 68, 68, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(239, 68, 68, 0.1);
         }
 
-        /* Special Glow for Popular Card */
         .package-card.popular {
-            border: 1px solid rgba(99, 102, 241, 0.4);
+            border: 1px solid rgba(239, 68, 68, 0.4);
             background: rgba(30, 41, 59, 0.7);
         }
 
@@ -208,21 +204,19 @@
             top: -14px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(135deg, #6366f1, #a855f7);
+            background: linear-gradient(135deg, #ef4444, #991b1b);
             color: white;
             padding: 4px 18px;
             font-size: 12px;
             font-weight: 600;
             border-radius: 20px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
         }
 
         .package-card h3 {
             font-size: 20px;
             color: #94a3b8;
             margin-bottom: 15px;
-            font-weight: 500;
         }
 
         .speed {
@@ -234,9 +228,9 @@
 
         .price {
             font-size: 18px;
-            font-weight: 500;
-            color: #38bdf8;
+            color: #ef4444;
             margin-bottom: 30px;
+            font-weight: 500;
         }
 
         .package-card ul {
@@ -258,7 +252,7 @@
 
         .package-card ul li::before {
             content: "✓";
-            color: #38bdf8;
+            color: #ef4444;
             font-weight: bold;
         }
 
@@ -281,18 +275,101 @@
         }
 
         .package-card.popular .btn-buy {
-            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            background: linear-gradient(135deg, #ef4444, #b91c1c);
             border: none;
         }
         
         .package-card.popular:hover .btn-buy {
-            background: linear-gradient(135deg, #6366f1, #38bdf8);
+            background: linear-gradient(135deg, #b91c1c, #ef4444);
             color: #fff;
+        }
+
+        /* MATCHING IMAGE: Why Choose Us Section */
+        .why-choose {
+            padding: 100px 8% 60px 8%;
+            text-align: center;
+            background-color: #0b0f19; /* Slightly darker shift for visual separation */
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .why-choose h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .why-choose .subtitle {
+            color: #94a3b8;
+            font-size: 16px;
+            max-width: 750px;
+            margin: 0 auto 60px auto;
+            line-height: 1.6;
+        }
+
+        .features-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            flex: 1;
+            min-width: 220px;
+            max-width: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Red Pulsing Circular Rings Effect (Matches Uploaded Image) */
+        .icon-circle {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: #1e293b;
+            border: 3px solid #ef4444; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            position: relative;
+            box-shadow: 0 0 0 6px rgba(239, 68, 68, 0.2), 
+                        0 0 0 12px rgba(239, 68, 68, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .feature-item:hover .icon-circle {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 8px rgba(239, 68, 68, 0.3), 
+                        0 0 0 16px rgba(239, 68, 68, 0.15),
+                        0 0 25px rgba(239, 68, 68, 0.4);
+        }
+
+        .inner-icon {
+            font-size: 32px;
+            color: #ffffff;
+        }
+
+        .feature-item h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.6;
         }
 
         /* Coverage Area Section */
         .coverage {
-            padding: 60px 8% 80px 8%;
+            padding: 100px 8% 80px 8%;
             text-align: center;
         }
 
@@ -308,10 +385,8 @@
         .coverage p {
             color: #94a3b8;
             margin-bottom: 35px;
-            font-size: 16px;
         }
 
-        /* Division Tabs Buttons */
         .division-tabs {
             display: flex;
             justify-content: center;
@@ -333,24 +408,23 @@
         }
 
         .tab-btn:hover {
-            border-color: #38bdf8;
-            color: #38bdf8;
+            border-color: #ef4444;
+            color: #ef4444;
         }
 
         .tab-btn.active {
-            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            background: linear-gradient(135deg, #ef4444, #b91c1c);
             color: white;
             border: none;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
         }
 
-        /* Sub-Area Grid Layout */
         .area-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             max-width: 1000px;
-            margin: 0 auto 50px auto;
+            margin: 0 auto;
             min-height: 120px;
         }
 
@@ -371,42 +445,14 @@
         }
 
         .area-card:hover {
-            background: rgba(56, 189, 248, 0.1);
-            border-color: rgba(56, 189, 248, 0.3);
-            color: #38bdf8;
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.3);
+            color: #ef4444;
             transform: translateY(-3px);
         }
 
         .area-card::before {
             content: "📍";
-            font-size: 16px;
-        }
-
-        /* Map Container Custom Styling */
-        .map-container {
-            max-width: 1000px;
-            margin: 40px auto 0 auto;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            background: rgba(30, 41, 59, 0.2);
-            padding: 10px;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
-            border-radius: 16px;
-            /* Dark mode tint for map blending */
-            filter: grayscale(1) invert(0.9) contrast(1.2) opacity(0.85); 
-            transition: all 0.5s ease;
-        }
-
-        .map-container iframe:hover {
-            filter: none; /* Mouse over করলে ম্যাপ তার আসল রঙে ফিরে আসবে */
-            opacity: 1;
         }
 
         @keyframes fadeIn {
@@ -416,7 +462,7 @@
 
         /* Contact Section */
         .contact {
-            background: radial-gradient(circle at bottom, rgba(56, 189, 248, 0.08) 0%, transparent 50%);
+            background: radial-gradient(circle at bottom, rgba(239, 68, 68, 0.05) 0%, transparent 50%);
             padding: 80px 8%;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.02);
@@ -429,12 +475,11 @@
 
         .contact p {
             color: #94a3b8;
-            font-size: 16px;
             margin-bottom: 10px;
         }
 
         .contact strong {
-            color: #38bdf8;
+            color: #ef4444;
             font-size: 20px;
         }
 
@@ -450,68 +495,39 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            body {
-                padding-top: 40px;
-            }
-            .top-mini-bar {
-                right: 50%;
-                transform: translateX(50%);
-                top: 10px;
-            }
-            header {
-                flex-direction: column;
-                gap: 20px;
-                padding: 20px;
-            }
-            nav ul {
-                justify-content: center;
-                width: 100%;
-            }
-            .hero-content h1 {
-                font-size: 36px;
-            }
-            .hero {
-                height: auto;
-                padding: 100px 20px;
-            }
-            .packages, .coverage {
-                padding: 60px 20px;
-            }
-            .area-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .map-container iframe {
-                height: 350px;
-            }
+            body { padding-top: 40px; }
+            .top-mini-bar { right: 50%; transform: translateX(50%); top: 10px; }
+            header { flex-direction: column; gap: 20px; padding: 20px; }
+            nav ul { justify-content: center; width: 100%; }
+            .hero-content h1 { font-size: 36px; }
+            .hero { height: auto; padding: 100px 20px; }
+            .packages, .why-choose, .coverage { padding: 60px 20px; }
+            .area-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 480px) {
-            .area-grid {
-                grid-template-columns: 1fr;
-            }
+            .area-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Corner Mini Login Button -->
     <div class="top-mini-bar">
         <a href="#login" class="btn-login">Customer Login</a>
     </div>
 
-    <!-- Header Navigation Bar -->
     <header>
         <div class="logo">NetSpeed</div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#packages">Packages</a></li>
+                <li><a href="#why-choose">Why Choose Us</a></li>
                 <li><a href="#coverage">Coverage</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Next Gen Connectivity For Ultimate Speed</h1>
@@ -520,12 +536,10 @@
         </div>
     </section>
 
-    <!-- Packages Section -->
     <section id="packages" class="packages">
         <h2>Choose the Best Plan for You</h2>
         <div class="package-container">
             
-            <!-- Card 1 -->
             <div class="package-card">
                 <div>
                     <h3>Starter Pack</h3>
@@ -542,7 +556,6 @@
                 </div>
             </div>
 
-            <!-- Card 2 (Popular) -->
             <div class="package-card popular">
                 <span class="badge">Most Popular</span>
                 <div>
@@ -560,7 +573,6 @@
                 </div>
             </div>
 
-            <!-- Card 3 -->
             <div class="package-card">
                 <div>
                     <h3>Enterprise Pack</h3>
@@ -580,12 +592,49 @@
         </div>
     </section>
 
-    <!-- Coverage Area Section -->
+    <section id="why-choose" class="why-choose">
+        <h2>WHY CHOOSE NETSPEED?</h2>
+        <p class="subtitle">Our focus on quality service within reasonable price. Our Internet service is blazing fast, affordable on a dedicated network.</p>
+        
+        <div class="features-container">
+            <div class="feature-item">
+                <div class="icon-circle">
+                    <div class="inner-icon">🌐</div>
+                </div>
+                <h3>Fiber Optic Connection</h3>
+                <p>We offer you fibre optic internet with super-fast data speed which means faster downloads and less buffering.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="icon-circle">
+                    <div class="inner-icon">⚡</div>
+                </div>
+                <h3>Latest Technology</h3>
+                <p>We use FTTH technology it provides you faster speed than twisted pair conductors, DSL or coaxial cable.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="icon-circle">
+                    <div class="inner-icon">💪</div>
+                </div>
+                <h3>Dedicated Bandwidth</h3>
+                <p>We provide stable connectivity within secure network. Our connection is super fast and dedicated.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="icon-circle">
+                    <div class="inner-icon">☎️</div>
+                </div>
+                <h3>24/7 Support</h3>
+                <p>We is always ready to support you with our experience and dedicated support team.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="coverage" class="coverage">
         <h2>Our Coverage Network</h2>
         <p>Select your division to check out the sub-areas currently covered by our services:</p>
         
-        <!-- Division Tabs Buttons -->
         <div class="division-tabs">
             <button class="tab-btn active" onclick="showAreas('dhaka', this)">Dhaka</button>
             <button class="tab-btn" onclick="showAreas('chittagong', this)">Chittagong</button>
@@ -593,24 +642,9 @@
             <button class="tab-btn" onclick="showAreas('rajshahi', this)">Rajshahi</button>
         </div>
 
-        <!-- Dynamic Sub-Area Grid -->
-        <div class="area-grid" id="areaGrid">
-            <!-- JavaScript loads sub-areas here -->
-        </div>
-
-        <!-- Interactive Map Section -->
-        <div class="map-container">
-            <!-- Default Embedded Map Focused on Bangladesh -->
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.123456789!2d90.399452!3d23.777176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c77094e13e53%3A0x5075212c241512b!2sBangladesh!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
+        <div class="area-grid" id="areaGrid"></div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Get in Touch Directly</h2>
         <p>For new internet connections or any customer support queries, feel free to call us:</p>
@@ -618,14 +652,11 @@
         <p style="margin-top: 15px; font-size: 14px;">Office: House-12, Road-05, Dhaka, Bangladesh.</p>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 NetSpeed Internet. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript For Smooth Dynamic Tab Filtering -->
     <script>
-        // Database for Sub-areas under divisions
         const areaData = {
             dhaka: ['Mirpur', 'Uttara', 'Gulshan', 'Dhanmondi', 'Mohammadpur', 'Badda', 'Khilgaon', 'Old Dhaka'],
             chittagong: ['GEC More', 'Halishahar', 'Khulshi', 'Agrabad', 'Chawkbazar', 'Nasirabad', 'Patenga'],
@@ -649,12 +680,10 @@
             });
         }
 
-        // Default layout load (Dhaka)
         window.onload = function() {
             const defaultBtn = document.querySelector('.tab-btn');
             showAreas('dhaka', defaultBtn);
         };
     </script>
-
 </body>
 </html>
