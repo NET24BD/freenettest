@@ -22,7 +22,7 @@
             overflow-x: hidden;
         }
 
-        /* Glassmorphism Header */
+        /* Glassmorphic Header */
         header {
             background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(12px);
@@ -70,6 +70,25 @@
             color: #ef4444;
         }
 
+        /* Mobile Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #f8fafc;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
         /* Customized Customer Login Button inside Navbar */
         .btn-customer-login {
             background: linear-gradient(135deg, #ef4444, #991b1b);
@@ -112,15 +131,9 @@
         }
 
         @keyframes pulseGlow {
-            0% {
-                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
         }
 
         /* Ultra-Modern Hero Section */
@@ -515,18 +528,38 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Responsive Design */
+        /* Responsive Design Upgrades */
         @media (max-width: 992px) {
-            header { flex-direction: column; gap: 20px; padding: 20px; }
-            .nav-container { flex-direction: column; gap: 20px; width: 100%; }
-            nav ul { justify-content: center; flex-wrap: wrap; }
-            .hero-content h1 { font-size: 36px; }
-            .hero { height: auto; padding: 100px 20px; }
-            .packages, .why-choose, .coverage { padding: 60px 20px; }
+            header { padding: 20px 5%; }
+            .menu-toggle { display: flex; }
+            
+            .nav-container {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                padding: 40px;
+                transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .nav-container.active { left: 0; }
+            nav ul { flex-direction: column; align-items: center; gap: 25px; }
+            nav ul li a { font-size: 18px; }
+            .hero-content h1 { font-size: 38px; }
+            .hero { height: auto; padding: 120px 20px; }
+            .packages, .why-choose, .coverage { padding: 80px 20px; }
             .area-grid { grid-template-columns: repeat(2, 1fr); }
         }
+
         @media (max-width: 480px) {
             .area-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 32px; }
         }
     </style>
 </head>
@@ -535,7 +568,15 @@
     <!-- Header Navigation Bar -->
     <header>
         <div class="logo">NetSpeed</div>
-        <div class="nav-container">
+        
+        <!-- Hamburger Menu Button -->
+        <button class="menu-toggle" id="mobileMenuBtn" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-container" id="navContainer">
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -547,7 +588,7 @@
             </nav>
             <!-- Integrated Custom Customer Login Button Linked to customer-login.html -->
             <a href="customer-login.html" class="btn-customer-login">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 Customer Login
             </a>
         </div>
@@ -625,7 +666,7 @@
     <!-- Why Choose Us Section -->
     <section id="why-choose" class="why-choose">
         <h2>WHY CHOOSE NETSPEED?</h2>
-        <p class="subtitle">Our focus on quality service within reasonable price. Our Internet service is blazing fast, affordable on a dedicated network.</p>
+        <p class="subtitle">Our focus is on quality service within a reasonable price. Our Internet service is blazing fast, affordable, and on a dedicated network.</p>
         
         <div class="features-container">
             <div class="feature-item">
@@ -633,7 +674,7 @@
                     <div class="inner-icon">🌐</div>
                 </div>
                 <h3>Fiber Optic Connection</h3>
-                <p>We offer you fibre optic internet with super-fast data speed which means faster downloads and less buffering.</p>
+                <p>We offer you fiber optic internet with super-fast data speed which means faster downloads and less buffering.</p>
             </div>
 
             <div class="feature-item">
@@ -641,7 +682,7 @@
                     <div class="inner-icon">⚡</div>
                 </div>
                 <h3>Latest Technology</h3>
-                <p>We use FTTH technology it provides you faster speed than twisted pair conductors, DSL or coaxial cable.</p>
+                <p>We use FTTH technology which provides faster speeds than twisted pair conductors, DSL, or coaxial cable.</p>
             </div>
 
             <div class="feature-item">
@@ -649,7 +690,7 @@
                     <div class="inner-icon">💪</div>
                 </div>
                 <h3>Dedicated Bandwidth</h3>
-                <p>We provide stable connectivity within secure network. Our connection is super fast and dedicated.</p>
+                <p>We provide stable connectivity within a secure network. Our connection is super fast and dedicated.</p>
             </div>
 
             <div class="feature-item">
@@ -657,7 +698,7 @@
                     <div class="inner-icon">☎️</div>
                 </div>
                 <h3>24/7 Support</h3>
-                <p>We is always ready to support you with our experience and dedicated support team.</p>
+                <p>We are always ready to support you with our experienced and dedicated support team.</p>
             </div>
         </div>
     </section>
@@ -719,10 +760,35 @@
             });
         }
 
-        window.onload = function() {
+        // Toggle Mobile Navigation Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navContainer = document.getElementById('navContainer');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navContainer.classList.toggle('active');
+            
+            // Hamburger Animation
+            const spans = mobileMenuBtn.querySelectorAll('span');
+            spans[0].style.transform = navContainer.classList.contains('active') ? 'rotate(45deg) translate(6px, 6px)' : 'none';
+            spans[1].style.opacity = navContainer.classList.contains('active') ? '0' : '1';
+            spans[2].style.transform = navContainer.classList.contains('active') ? 'rotate(-45deg) translate(5px, -5px)' : 'none';
+        });
+
+        // Close Mobile Menu after Clicking any Navigation Links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(navContainer.classList.contains('active')) {
+                    mobileMenuBtn.click();
+                }
+            });
+        });
+
+        // This triggers as soon as the DOM content is fully parsed and loaded
+        document.addEventListener('DOMContentLoaded', function() {
             const defaultBtn = document.querySelector('.tab-btn');
             showAreas('dhaka', defaultBtn);
-        };
+        });
     </script>
 </body>
 </html>
