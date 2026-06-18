@@ -51,83 +51,29 @@
             letter-spacing: 1px;
         }
 
+        /* Center Plain Links Menu */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #ef4444;
+        }
+
         .header-right {
             display: flex;
             align-items: center;
             gap: 20px;
-        }
-
-        /* 3 Lines Menu Container */
-        .menu-lines-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Pure 3 Lines (Hamburger) Icon Design without Button Styling */
-        .three-lines-btn {
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            padding: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .three-lines-btn span {
-            width: 24px;
-            height: 3px;
-            background-color: #f8fafc;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        /* Hover effect on lines */
-        .menu-lines-container:hover .three-lines-btn span {
-            background-color: #ef4444;
-        }
-
-        /* Plain Text Dropdown Menu Box */
-        .lines-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: #1e293b;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            width: 180px;
-            padding: 12px 0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            z-index: 100;
-        }
-
-        /* Show menu on Hovering the container */
-        .menu-lines-container:hover .lines-dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        /* Plain Text Links inside Dropdown */
-        .lines-dropdown a {
-            display: block;
-            color: #94a3b8;
-            padding: 10px 24px;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            text-align: left;
-        }
-
-        .lines-dropdown a:hover {
-            color: #ef4444;
-            background: rgba(239, 68, 68, 0.05);
         }
 
         /* Customer Login Button */
@@ -649,22 +595,46 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Layout Responsiveness */
+        /* Responsive Layout Updates for Open Text Menu */
+        @media (max-width: 900px) {
+            header {
+                padding: 0 4%;
+            }
+            .nav-menu {
+                gap: 15px;
+            }
+            .nav-menu a {
+                font-size: 14px;
+            }
+        }
+
         @media (max-width: 768px) {
-            header { padding: 0 4%; }
-            .logo { font-size: 22px; }
-            .btn-customer-login { padding: 8px 16px; font-size: 13px; }
-            .lines-dropdown { right: -10px; }
-            
-            .hero-content h1 { font-size: 36px; }
-            .packages, .why-choose, .security-section, .coverage { padding: 60px 20px; }
-            .area-grid { grid-template-columns: repeat(2, 1fr); }
+            header {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 20px;
+                gap: 15px;
+            }
+            body {
+                padding-top: 140px; /* Adjusted padding to prevent navbar overlapping content */
+            }
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 20px;
+            }
+            .packages, .why-choose, .security-section, .coverage { 
+                padding: 60px 20px; 
+            }
+            .area-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+            }
         }
 
         @media (max-width: 480px) {
-            .logo { font-size: 18px; }
-            .btn-customer-login { padding: 6px 12px; font-size: 12px; gap: 4px; }
-            .btn-customer-login svg { width: 14px; height: 14px; }
+            .logo { font-size: 22px; }
+            .btn-customer-login { padding: 8px 16px; font-size: 13px; }
             .area-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -675,29 +645,22 @@
     <header>
         <div class="logo">NetSpeed</div>
         
+        <!-- Open Plain Text Navbar Links (No Icons/Dropdowns/Buttons) -->
+        <nav class="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#packages">Packages</a>
+            <a href="#why-choose">Why Choose Us</a>
+            <a href="#security">Security</a>
+            <a href="#coverage">Coverage</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
         <div class="header-right">
             <!-- Customer Login Button -->
             <a href="customer-login.html" class="btn-customer-login">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 Customer Login
             </a>
-
-            <!-- 3 Lines (Hamburger) Menu Container with Plain Links -->
-            <div class="menu-lines-container">
-                <button class="three-lines-btn" aria-label="Open Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <div class="lines-dropdown">
-                    <a href="#home">Home</a>
-                    <a href="#packages">Packages</a>
-                    <a href="#why-choose">Why Choose Us</a>
-                    <a href="#security">Security</a>
-                    <a href="#coverage">Coverage</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
         </div>
     </header>
 
@@ -892,21 +855,6 @@
                 grid.appendChild(card);
             });
         }
-
-        // Close dropdown when any link is clicked
-        const dropdownLinks = document.querySelectorAll('.lines-dropdown a');
-        dropdownLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                const dropdown = document.querySelector('.lines-dropdown');
-                dropdown.style.opacity = '0';
-                dropdown.style.visibility = 'hidden';
-                
-                setTimeout(() => {
-                    dropdown.style.opacity = '';
-                    dropdown.style.visibility = '';
-                }, 400);
-            });
-        });
 
         document.addEventListener('DOMContentLoaded', function() {
             const defaultBtn = document.querySelector('.tab-btn');
