@@ -57,43 +57,39 @@
             gap: 20px;
         }
 
-        /* 3 Dots Container Styling */
-        .dots-container {
+        /* 3 Lines Menu Container */
+        .menu-lines-container {
             position: relative;
             display: inline-block;
         }
 
-        /* The 3 Dots Icon Design */
-        .three-dots-btn {
+        /* Pure 3 Lines (Hamburger) Icon Design without Button Styling */
+        .three-lines-btn {
             background: transparent;
             border: none;
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 5px;
             padding: 10px;
-            border-radius: 50px;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .three-dots-btn:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .three-dots-btn span {
-            width: 5px;
-            height: 5px;
+        .three-lines-btn span {
+            width: 24px;
+            height: 3px;
             background-color: #f8fafc;
-            border-radius: 50%;
-            transition: background-color 0.3s ease;
+            border-radius: 3px;
+            transition: all 0.3s ease;
         }
 
-        .three-dots-btn:hover span {
+        /* Hover effect on lines */
+        .menu-lines-container:hover .three-lines-btn span {
             background-color: #ef4444;
         }
 
         /* Plain Text Dropdown Menu Box */
-        .dots-dropdown {
+        .lines-dropdown {
             position: absolute;
             top: 100%;
             right: 0;
@@ -111,14 +107,14 @@
         }
 
         /* Show menu on Hovering the container */
-        .dots-container:hover .dots-dropdown {
+        .menu-lines-container:hover .lines-dropdown {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
 
         /* Plain Text Links inside Dropdown */
-        .dots-dropdown a {
+        .lines-dropdown a {
             display: block;
             color: #94a3b8;
             padding: 10px 24px;
@@ -129,7 +125,7 @@
             text-align: left;
         }
 
-        .dots-dropdown a:hover {
+        .lines-dropdown a:hover {
             color: #ef4444;
             background: rgba(239, 68, 68, 0.05);
         }
@@ -653,12 +649,12 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Responsive adjustments for 3 Dots Layout */
+        /* Layout Responsiveness */
         @media (max-width: 768px) {
             header { padding: 0 4%; }
             .logo { font-size: 22px; }
             .btn-customer-login { padding: 8px 16px; font-size: 13px; }
-            .dots-dropdown { right: -20px; } /* Prevent menu spilling off mobile viewport */
+            .lines-dropdown { right: -10px; }
             
             .hero-content h1 { font-size: 36px; }
             .packages, .why-choose, .security-section, .coverage { padding: 60px 20px; }
@@ -686,14 +682,14 @@
                 Customer Login
             </a>
 
-            <!-- The Beautiful 3 Dots Menu Button (Contains Plain Links) -->
-            <div class="dots-container">
-                <button class="three-dots-btn" aria-label="Open Menu">
+            <!-- 3 Lines (Hamburger) Menu Container with Plain Links -->
+            <div class="menu-lines-container">
+                <button class="three-lines-btn" aria-label="Open Menu">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                <div class="dots-dropdown">
+                <div class="lines-dropdown">
                     <a href="#home">Home</a>
                     <a href="#packages">Packages</a>
                     <a href="#why-choose">Why Choose Us</a>
@@ -814,7 +810,7 @@
     <!-- Security & Safety Section -->
     <section id="security" class="security-section">
         <h2>Safe & Secure Browsing</h2>
-        <p class="subtitle">আপনার পরিবারের অনলাইন নিরাপত্তা আমাদের সর্বোচ্চ অগ্রাধিকার। নেটস্পিড ইন্টারনেটের সাথে পান সম্পূর্ণ নিরাপদ ও সুরক্ষিত ব্রাউজিংয়ের নিশ্চয়তা。</p>
+        <p class="subtitle">আপনার পরিবারের অনলাইন নিরাপত্তা আমাদের সর্বোচ্চ অগ্রাধিকার। নেটস্পিড ইন্টারনেটের সাথে পান সম্পূর্ণ নিরাপদ ও সুরক্ষিত ব্রাউজিংয়ের নিশ্চয়তা।</p>
         
         <div class="security-grid">
             <!-- Security Card 1 -->
@@ -897,15 +893,14 @@
             });
         }
 
-        // Close dropdown when any link is clicked (Especially handy for mobile)
-        const dropdownLinks = document.querySelectorAll('.dots-dropdown a');
+        // Close dropdown when any link is clicked
+        const dropdownLinks = document.querySelectorAll('.lines-dropdown a');
         dropdownLinks.forEach(link => {
             link.addEventListener('click', () => {
-                const dropdown = document.querySelector('.dots-dropdown');
+                const dropdown = document.querySelector('.lines-dropdown');
                 dropdown.style.opacity = '0';
                 dropdown.style.visibility = 'hidden';
                 
-                // Reset standard hover trigger styling recovery shortly
                 setTimeout(() => {
                     dropdown.style.opacity = '';
                     dropdown.style.visibility = '';
