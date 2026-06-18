@@ -20,21 +20,26 @@
             background-color: #0f172a; /* Dark Background */
             color: #f8fafc;
             overflow-x: hidden;
+            padding-top: 80px; 
         }
 
-        /* Glassmorphic Header */
+        /* Fixed Movable Header */
         header {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            position: sticky;
+            padding: 0 8%;
+            height: 80px;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         }
 
         .logo {
@@ -46,10 +51,15 @@
             letter-spacing: 1px;
         }
 
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         .nav-container {
             display: flex;
             align-items: center;
-            gap: 40px;
         }
 
         nav ul {
@@ -79,6 +89,7 @@
             border: none;
             cursor: pointer;
             z-index: 1001;
+            padding: 5px;
         }
 
         .menu-toggle span {
@@ -89,7 +100,7 @@
             transition: all 0.3s ease;
         }
 
-        /* Customized Customer Login Button inside Navbar */
+        /* Customer Login Button */
         .btn-customer-login {
             background: linear-gradient(135deg, #ef4444, #991b1b);
             color: #ffffff;
@@ -104,9 +115,9 @@
             box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            white-space: nowrap;
         }
 
-        /* Glowing Pulse Animation Effect */
         .btn-customer-login::after {
             content: '';
             position: absolute;
@@ -126,17 +137,13 @@
             background: linear-gradient(135deg, #ff4d4d, #b91c1c);
         }
 
-        .btn-customer-login:active {
-            transform: translateY(0);
-        }
-
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
             70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
             100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
         }
 
-        /* Ultra-Modern Hero Section */
+        /* Hero Section */
         .hero {
             position: relative;
             height: 85vh;
@@ -169,7 +176,6 @@
             margin-bottom: 35px;
         }
 
-        /* Red Gradient Button */
         .btn {
             background: linear-gradient(135deg, #ef4444, #b91c1c);
             color: white;
@@ -188,7 +194,7 @@
             box-shadow: 0 6px 25px rgba(239, 68, 68, 0.5);
         }
 
-        /* Premium Packages Section */
+        /* Packages Section */
         .packages {
             padding: 100px 8% 60px 8%;
             text-align: center;
@@ -326,7 +332,6 @@
             text-align: center;
             background-color: #0b0f19;
             border-top: 1px solid rgba(255, 255, 255, 0.02);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
         }
 
         .why-choose h2 {
@@ -397,6 +402,92 @@
         }
 
         .feature-item p {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        /* Security & Safety Section */
+        .security-section {
+            padding: 100px 8%;
+            background: linear-gradient(180deg, #0b0f19 0%, #0f172a 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+        }
+
+        .security-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .security-section .subtitle {
+            color: #94a3b8;
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            line-height: 1.6;
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .security-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(239, 68, 68, 0.1);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: left;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .security-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: #ef4444;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .security-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(239, 68, 68, 0.3);
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.05);
+        }
+
+        .security-card:hover::before {
+            opacity: 1;
+        }
+
+        .security-icon {
+            font-size: 35px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .security-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .security-card p {
             font-size: 14px;
             color: #94a3b8;
             line-height: 1.6;
@@ -530,7 +621,7 @@
 
         /* Responsive Design Upgrades */
         @media (max-width: 992px) {
-            header { padding: 20px 5%; }
+            header { padding: 0 5%; }
             .menu-toggle { display: flex; }
             
             .nav-container {
@@ -551,13 +642,23 @@
             .nav-container.active { left: 0; }
             nav ul { flex-direction: column; align-items: center; gap: 25px; }
             nav ul li a { font-size: 18px; }
+            
+            .btn-customer-login {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
             .hero-content h1 { font-size: 38px; }
             .hero { height: auto; padding: 120px 20px; }
-            .packages, .why-choose, .coverage { padding: 80px 20px; }
+            .packages, .why-choose, .security-section, .coverage { padding: 80px 20px; }
             .area-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 480px) {
+            header { padding: 0 4%; }
+            .logo { font-size: 22px; }
+            .btn-customer-login { padding: 6px 12px; font-size: 12px; gap: 4px; }
+            .btn-customer-login svg { width: 14px; height: 14px; }
             .area-grid { grid-template-columns: 1fr; }
             .hero-content h1 { font-size: 32px; }
         }
@@ -569,12 +670,18 @@
     <header>
         <div class="logo">NetSpeed</div>
         
-        <!-- Hamburger Menu Button -->
-        <button class="menu-toggle" id="mobileMenuBtn" aria-label="Toggle Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <div class="header-right">
+            <a href="customer-login.html" class="btn-customer-login">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                Customer Login
+            </a>
+
+            <button class="menu-toggle" id="mobileMenuBtn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
 
         <div class="nav-container" id="navContainer">
             <nav>
@@ -582,15 +689,11 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#packages">Packages</a></li>
                     <li><a href="#why-choose">Why Choose Us</a></li>
+                    <li><a href="#security">Security</a></li>
                     <li><a href="#coverage">Coverage</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <!-- Integrated Custom Customer Login Button Linked to customer-login.html -->
-            <a href="customer-login.html" class="btn-customer-login">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                Customer Login
-            </a>
         </div>
     </header>
 
@@ -608,7 +711,6 @@
         <h2>Choose the Best Plan for You</h2>
         <div class="package-container">
             
-            <!-- Card 1 -->
             <div class="package-card">
                 <div>
                     <h3>Starter Pack</h3>
@@ -625,7 +727,6 @@
                 </div>
             </div>
 
-            <!-- Card 2 (Popular) -->
             <div class="package-card popular">
                 <span class="badge">Most Popular</span>
                 <div>
@@ -643,7 +744,6 @@
                 </div>
             </div>
 
-            <!-- Card 3 -->
             <div class="package-card">
                 <div>
                     <h3>Enterprise Pack</h3>
@@ -699,6 +799,35 @@
                 </div>
                 <h3>24/7 Support</h3>
                 <p>We are always ready to support you with our experienced and dedicated support team.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Safety Section -->
+    <section id="security" class="security-section">
+        <h2>Safe & Secure Browsing</h2>
+        <p class="subtitle">আপনার পরিবারের অনলাইন নিরাপত্তা আমাদের সর্বোচ্চ অগ্রাধিকার। নেটস্পিড ইন্টারনেটের সাথে পান সম্পূর্ণ নিরাপদ ও সুরক্ষিত ব্রাউজিংয়ের নিশ্চয়তা।</p>
+        
+        <div class="security-grid">
+            <!-- Security Card 1 -->
+            <div class="security-card">
+                <div class="security-icon">🛡️</div>
+                <h3>DDoS & Malware Protection</h3>
+                <p>আমাদের নেটওয়ার্ক লেভেলে রয়েছে অত্যাধুনিক ফায়ারওয়াল সিকিউরিটি, যা ক্ষতিকারক ম্যালওয়্যার এবং সাইবার আক্রমণ থেকে আপনার ডিভাইসগুলোকে সুরক্ষিত রাখে。</p>
+            </div>
+
+            <!-- Security Card 2 (Updated with Secure Real IP) -->
+            <div class="security-card">
+                <div class="security-icon">🌐</div>
+                <h3>Secure Real IP Capability</h3>
+                <p>আমরা প্রদান করি শতভাগ নিরাপদ ও ডেডিকেটেড Static Real IP সুবিধা। কোনো শেয়ার্ড আইপি-র ঝুঁকি ছাড়াই আপনার ফ্রিল্যান্সিং অ্যাকাউন্ট, অনলাইন ব্যাংকিং এবং নিজস্ব সার্ভার রাখুন সম্পূর্ণ হ্যাকিং-মুক্ত ও সুরক্ষিত।</p>
+            </div>
+
+            <!-- Security Card 3 -->
+            <div class="security-card">
+                <div class="security-icon">🔒</div>
+                <h3>Data Privacy Assured</h3>
+                <p>আমরা আপনার ব্রাউজিং ডেটার গোপনীয়তা কঠোরভাবে রক্ষা করি। কোনো থার্ড-পার্টির কাছে ডেটা শেয়ার না করে শতভাগ নিরাপদ ডেটা টানেলিং নিশ্চিত করা হয়।</p>
             </div>
         </div>
     </section>
@@ -775,7 +904,6 @@
             spans[2].style.transform = navContainer.classList.contains('active') ? 'rotate(-45deg) translate(5px, -5px)' : 'none';
         });
 
-        // Close Mobile Menu after Clicking any Navigation Links
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if(navContainer.classList.contains('active')) {
@@ -784,7 +912,6 @@
             });
         });
 
-        // This triggers as soon as the DOM content is fully parsed and loaded
         document.addEventListener('DOMContentLoaded', function() {
             const defaultBtn = document.querySelector('.tab-btn');
             showAreas('dhaka', defaultBtn);
