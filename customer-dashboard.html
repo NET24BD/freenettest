@@ -17,8 +17,10 @@ header{
     text-align:center;
     padding:15px;
     font-size:22px;
+    font-weight:bold;
 }
 
+/* TOP BAR */
 .topbar{
     display:flex;
     justify-content:center;
@@ -43,33 +45,46 @@ header{
     border-radius:10px;
 }
 
+/* GRID */
 .container{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
-    gap:15px;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:18px;
     padding:20px;
 }
 
+/* BIG CARD */
 .card{
     background:#1e293b;
-    padding:15px;
-    border-radius:12px;
+    padding:20px;
+    border-radius:15px;
     text-align:center;
     cursor:pointer;
+    transition:0.3s;
 }
 
+.card:hover{
+    transform:scale(1.04);
+}
+
+/* STATUS */
 .status{
-    font-size:12px;
-    margin-bottom:5px;
+    font-size:13px;
     font-weight:bold;
+    margin-bottom:8px;
 }
 
-.online{
-    color:#22c55e;
-}
+.online{ color:#22c55e; }
+.offline{ color:#ef4444; }
 
-.offline{
-    color:#ef4444;
+/* SERVER NAME */
+.server-name{
+    font-size:16px;
+    font-weight:600;
+    display:block;
+    margin-top:8px;
+    padding-top:8px;
+    border-top:1px solid rgba(255,255,255,0.1);
 }
 </style>
 </head>
@@ -79,38 +94,38 @@ header{
 <header>⚡ Customer Dashboard</header>
 
 <div class="topbar">
-    <div class="box">🟢 Active: <span id="active"></span></div>
-    <div class="box">📡 Total: <span id="total"></span></div>
+    <div class="box">🟢 Active: <span id="active">0</span></div>
+    <div class="box">📡 Total: <span id="total">0</span></div>
     <div class="box">⏰ <span id="time"></span></div>
     <button class="logout" onclick="logout()">Logout</button>
 </div>
 
-<div class="container" id="container">
+<div class="container">
 
-<!-- 20 Cards -->
-<div class="card"><div class="status online">ONLINE</div>Server 01</div>
-<div class="card"><div class="status offline">OFFLINE</div>Server 02</div>
-<div class="card"><div class="status online">ONLINE</div>Server 03</div>
-<div class="card"><div class="status online">ONLINE</div>Server 04</div>
-<div class="card"><div class="status offline">OFFLINE</div>Server 05</div>
+<!-- 20 SERVER CARDS -->
+<div class="card"><div class="status online">ONLINE</div><span class="server-name">Server 01</span></div>
+<div class="card"><div class="status offline">OFFLINE</div><span class="server-name">Server 02</span></div>
+<div class="card"><div class="status online">ONLINE</div><span class="server-name">Server 03</span></div>
+<div class="card"><div class="status online">ONLINE</div><span class="server-name">Server 04</span></div>
+<div class="card"><div class="status offline">OFFLINE</div><span class="server-name">Server 05</span></div>
 
-<div class="card"><div class="status online">ONLINE</div>Server 06</div>
-<div class="card"><div class="status online">ONLINE</div>Server 07</div>
-<div class="card"><div class="status offline">OFFLINE</div>Server 08</div>
-<div class="card"><div class="status online">ONLINE</div>Server 09</div>
-<div class="card"><div class="status online">ONLINE</div>Server 10</div>
+<div class="card"><div class="status online">ONLINE</div><span class="server-name">Server 06</span></div>
+<div class="card"><div class="status online">ONLINE</div><span class="server-name">Server 07</span></div>
+<div class="card"><div class="status offline">OFFLINE</div><span class="server-name">Server 08</span></div>
+<div class="card"><div class="status online">ONLINE</div><span class="server-name">Server 09</span></div>
+<div class="card"><div class="status online">ONLINE</div><span class="server-name">Server 10</span></div>
 
-<div class="card"><div class="status offline">OFFLINE</div>Server 11</div>
-<div class="card"><div class="status online">ONLINE</div>Server 12</div>
-<div class="card"><div class="status online">ONLINE</div>Server 13</div>
-<div class="card"><div class="status offline">OFFLINE</div>Server 14</div>
-<div class="card"><div class="status online">ONLINE</div>Server 15</div>
+<div class="card"><div class="status offline">OFFLINE</div><span class="server-name">Server 11</span></div>
+<div class="card"><div class="status online">ONLINE</div><span class="server-name">Server 12</span></div>
+<div class="card"><div class="status online">ONLINE</div><span class="server-name">Server 13</span></div>
+<div class="card"><div class="status offline">OFFLINE</div><span class="server-name">Server 14</span></div>
+<div class="card"><div class="status online">ONLINE</div><span class="server-name">Server 15</span></div>
 
-<div class="card"><div class="status online">ONLINE</div>Server 16</div>
-<div class="card"><div class="status offline">OFFLINE</div>Server 17</div>
-<div class="card"><div class="status online">ONLINE</div>Server 18</div>
-<div class="card"><div class="status online">ONLINE</div>Server 19</div>
-<div class="card"><div class="status offline">OFFLINE</div>Server 20</div>
+<div class="card"><div class="status online">ONLINE</div><span class="server-name">Server 16</span></div>
+<div class="card"><div class="status offline">OFFLINE</div><span class="server-name">Server 17</span></div>
+<div class="card"><div class="status online">ONLINE</div><span class="server-name">Server 18</span></div>
+<div class="card"><div class="status online">ONLINE</div><span class="server-name">Server 19</span></div>
+<div class="card"><div class="status offline">OFFLINE</div><span class="server-name">Server 20</span></div>
 
 </div>
 
@@ -140,7 +155,7 @@ function logout(){
 }
 
 ////////////////////////////////////////////////////
-// 📊 COUNT (ONLINE ONLY)
+// 📊 COUNT UPDATE
 ////////////////////////////////////////////////////
 function updateCount(){
     let cards = document.querySelectorAll(".card");
@@ -152,7 +167,7 @@ function updateCount(){
 updateCount();
 
 ////////////////////////////////////////////////////
-// ⏰ TIME
+// ⏰ CLOCK
 ////////////////////////////////////////////////////
 setInterval(()=>{
     document.getElementById("time").innerText = new Date().toLocaleTimeString();
