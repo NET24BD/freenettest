@@ -54,10 +54,22 @@ header{
     background:#1e293b;
     padding:15px;
     border-radius:12px;
+    text-align:center;
+    cursor:pointer;
 }
+
 .status{
-    color:#22c55e;
     font-size:12px;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+.online{
+    color:#22c55e;
+}
+
+.offline{
+    color:#ef4444;
 }
 </style>
 </head>
@@ -73,20 +85,39 @@ header{
     <button class="logout" onclick="logout()">Logout</button>
 </div>
 
-<div class="container">
+<div class="container" id="container">
 
-<div class="card"><div class="status">ONLINE</div>Server 01</div>
-<div class="card"><div class="status">ONLINE</div>Server 02</div>
-<div class="card"><div class="status">ONLINE</div>Server 03</div>
-<div class="card"><div class="status">ONLINE</div>Server 04</div>
-<div class="card"><div class="status">ONLINE</div>Server 05</div>
+<!-- 20 Cards -->
+<div class="card"><div class="status online">ONLINE</div>Server 01</div>
+<div class="card"><div class="status offline">OFFLINE</div>Server 02</div>
+<div class="card"><div class="status online">ONLINE</div>Server 03</div>
+<div class="card"><div class="status online">ONLINE</div>Server 04</div>
+<div class="card"><div class="status offline">OFFLINE</div>Server 05</div>
+
+<div class="card"><div class="status online">ONLINE</div>Server 06</div>
+<div class="card"><div class="status online">ONLINE</div>Server 07</div>
+<div class="card"><div class="status offline">OFFLINE</div>Server 08</div>
+<div class="card"><div class="status online">ONLINE</div>Server 09</div>
+<div class="card"><div class="status online">ONLINE</div>Server 10</div>
+
+<div class="card"><div class="status offline">OFFLINE</div>Server 11</div>
+<div class="card"><div class="status online">ONLINE</div>Server 12</div>
+<div class="card"><div class="status online">ONLINE</div>Server 13</div>
+<div class="card"><div class="status offline">OFFLINE</div>Server 14</div>
+<div class="card"><div class="status online">ONLINE</div>Server 15</div>
+
+<div class="card"><div class="status online">ONLINE</div>Server 16</div>
+<div class="card"><div class="status offline">OFFLINE</div>Server 17</div>
+<div class="card"><div class="status online">ONLINE</div>Server 18</div>
+<div class="card"><div class="status online">ONLINE</div>Server 19</div>
+<div class="card"><div class="status offline">OFFLINE</div>Server 20</div>
 
 </div>
 
 <script>
 
 ////////////////////////////////////////////////////
-// 🔐 PROTECTION (LOGIN REQUIRED)
+// 🔐 LOGIN PROTECTION
 ////////////////////////////////////////////////////
 if(localStorage.getItem("auth") !== "true"){
     window.location.replace("customer-login.html");
@@ -109,11 +140,16 @@ function logout(){
 }
 
 ////////////////////////////////////////////////////
-// 📊 COUNT
+// 📊 COUNT (ONLINE ONLY)
 ////////////////////////////////////////////////////
-let cards = document.querySelectorAll(".card");
-document.getElementById("active").innerText = cards.length;
-document.getElementById("total").innerText = cards.length;
+function updateCount(){
+    let cards = document.querySelectorAll(".card");
+    let online = document.querySelectorAll(".online");
+
+    document.getElementById("active").innerText = online.length;
+    document.getElementById("total").innerText = cards.length;
+}
+updateCount();
 
 ////////////////////////////////////////////////////
 // ⏰ TIME
