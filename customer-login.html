@@ -155,7 +155,7 @@ eyeIcon.addEventListener("click", () => {
     }
 });
 
-/* LOGIN SYSTEM */
+/* LOGIN */
 document.getElementById("loginForm").addEventListener("submit", async function(e){
     e.preventDefault();
 
@@ -188,7 +188,13 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
         loadingBox.style.display = "none";
 
         if(data.status === "success"){
-            window.location.href = "customer-dashboard.html";
+
+            // 🔥 FIX: AUTH SET
+            localStorage.setItem("auth", "true");
+            localStorage.setItem("user", username);
+
+            window.location.replace("customer-dashboard.html");
+
         } else {
             errorText.innerText = data.message;
             errorBox.style.display = "block";
