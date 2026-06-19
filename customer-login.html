@@ -82,9 +82,16 @@ button {
     display: none;
     background: rgba(255,0,0,0.1);
     padding: 10px;
-    margin-bottom: 10px;
+    margin-top: 10px;
     border-radius: 10px;
     color: #ff8a8a;
+}
+
+#loadingBox{
+    display:none;
+    margin-top:10px;
+    color:#fff;
+    font-size:14px;
 }
 </style>
 </head>
@@ -95,10 +102,6 @@ button {
 
     <h2>সিনে-কাস্টমার লগইন</h2>
     <p>আপনার অ্যাকাউন্টে প্রবেশ করুন</p>
-
-    <div class="error-box" id="errorBox">
-        <span id="errorText"></span>
-    </div>
 
     <form id="loginForm">
 
@@ -114,6 +117,13 @@ button {
         </div>
 
         <button type="submit">Login</button>
+
+        <div id="loadingBox">⏳ Logging in...</div>
+
+        <div class="error-box" id="errorBox">
+            <span id="errorText"></span>
+        </div>
+
     </form>
 
 </div>
@@ -154,8 +164,10 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 
     const errorBox = document.getElementById("errorBox");
     const errorText = document.getElementById("errorText");
+    const loadingBox = document.getElementById("loadingBox");
 
     errorBox.style.display = "none";
+    loadingBox.style.display = "block";
 
     try {
         const res = await fetch(API_URL, {
@@ -173,6 +185,8 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 
         const data = await res.json();
 
+        loadingBox.style.display = "none";
+
         if(data.status === "success"){
             window.location.href = "customer-dashboard.html";
         } else {
@@ -181,6 +195,7 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
         }
 
     } catch(err){
+        loadingBox.style.display = "none";
         errorText.innerText = "Server error!";
         errorBox.style.display = "block";
     }
