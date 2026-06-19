@@ -1,371 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineLogin BD - Customer Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CineLogin BD - Customer Portal</title>
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        
-        body {
-            /* 🇧🇩 বাংলাদেশ পতাকার থিম অনুযায়ী সিনেমাটিক ডার্ক ব্যাকগ্রাউন্ড গ্রেডিয়েন্ট */
-            background: radial-gradient(circle at center, #2e0507 0%, #004d38 50%, #00261c 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            overflow-x: hidden;
-            position: relative;
-        }
-        
-        /* ব্যাকগ্রাউন্ডের সার্বক্ষণিক দৃশ্যমান কণা ও রেখার নেটওয়ার্ক */
-        #particles-js { 
-            position: absolute; 
-            width: 100%; 
-            height: 100%; 
-            top: 0; 
-            left: 0; 
-            z-index: 1; 
-        }
-        
-        /* প্রিমিয়াম গ্লাস লগইন বক্স */
-        .login-container {
-            background: rgba(0, 38, 28, 0.75);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(244, 63, 94, 0.3); 
-            padding: 35px 30px;
-            border-radius: 28px;
-            width: 100%;
-            max-width: 430px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(244, 63, 94, 0.2);
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-        
-        @keyframes fadeIn { 
-            to { opacity: 1; transform: translateY(0); } 
-        }
-        
-        /* কিউট সিনেমা অডিয়েন্স কার্টুন ব্যানার */
-        .movie-cartoon-banner { 
-            font-size: 55px; 
-            margin-bottom: 15px; 
-            display: flex; 
-            justify-content: center; 
-            align-items: flex-end; 
-            gap: 15px; 
-        }
-        
-        .cartoon-audience { 
-            position: relative; 
-            display: inline-flex; 
-            gap: 8px; 
-            background: rgba(255, 255, 255, 0.05); 
-            padding: 10px 18px; 
-            border-radius: 50px; 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-        }
-        
-        .cartoon-audience i.fan-1 { color: #f43f5e; } 
-        .cartoon-audience i.fan-2 { color: #10b981; } 
-        
-        /* গোল্ডেন মুভি ব্যাজ আইকন */
-        .movie-badge-icons { 
-            display: flex; 
-            justify-content: center; 
-            gap: 12px; 
-            margin-bottom: 20px; 
-            color: #f59e0b; 
-            font-size: 18px; 
-            background: rgba(255, 255, 255, 0.05); 
-            width: fit-content; 
-            margin-left: auto; 
-            margin-right: auto; 
-            padding: 6px 16px; 
-            border-radius: 20px; 
-        }
-        
-        .login-header h2 { 
-            color: #ffffff; 
-            font-size: 26px; 
-            font-weight: 700; 
-            margin-bottom: 6px; 
-        }
-        
-        .login-header p { 
-            color: #9ca3af; 
-            font-size: 13px; 
-            margin-bottom: 25px; 
-        }
-        
-        /* ডাইনামিক লাল অ্যালার্ট বক্স (ভুল ক্রেডেনশিয়াল বা ডাবল-লগইন ব্লক এরর) */
-        .error-box {
-            display: none; 
-            background: rgba(244, 63, 94, 0.15);
-            border: 1px solid rgba(244, 63, 94, 0.4);
-            color: #fda4af;
-            padding: 12px;
-            border-radius: 12px;
-            font-size: 13px;
-            margin-bottom: 20px;
-            text-align: left;
-            align-items: center;
-            gap: 8px;
-            animation: shake 0.4s ease-in-out;
-            line-height: 1.4;
-        }
-        
-        @keyframes shake { 
-            0%, 100% { transform: translateX(0); } 
-            25% { transform: translateX(-6px); } 
-            75% { transform: translateX(6px); } 
-        }
-        
-        /* ইনপুট ফিল্ড ও আইকন স্টাইলিং */
-        .input-group { position: relative; margin-bottom: 20px; text-align: left; }
-        
-        .input-group i.left-icon { 
-            position: absolute; 
-            left: 16px; 
-            top: 50%; 
-            transform: translateY(-50%); 
-            color: #6b7280; 
-            font-size: 16px; 
-            transition: 0.3s; 
-            pointer-events: none; 
-        }
-        
-        .input-group input { 
-            width: 100%; 
-            padding: 16px 45px 16px 48px; 
-            background: rgba(255, 255, 255, 0.03); 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            border-radius: 14px; 
-            outline: none; 
-            color: #ffffff; 
-            font-size: 14px; 
-            transition: all 0.3s ease; 
-        }
-        
-        .input-group input:focus { 
-            border-color: #f43f5e; 
-            background: rgba(255, 255, 255, 0.07); 
-            box-shadow: 0 0 15px rgba(244, 63, 94, 0.25); 
-        }
-        
-        .input-group input:focus ~ i.left-icon { color: #f43f5e; }
-        
-        .toggle-password { 
-            position: absolute; 
-            right: 16px; 
-            top: 50%; 
-            transform: translateY(-50%); 
-            color: #6b7280; 
-            cursor: pointer; 
-            transition: 0.3s; 
-        }
-        
-        .toggle-password:hover { color: #f43f5e; }
-        
-        .forgot-pass { text-align: right; margin-bottom: 25px; }
-        .forgot-pass a { color: #9ca3af; font-size: 13px; text-decoration: none; transition: 0.3s; }
-        .forgot-pass a:hover { color: #10b981; }
-        
-        /* প্রিমিয়াম সিনেমাটিক বাটন */
-        .login-btn { 
-            width: 100%; 
-            padding: 16px; 
-            background: linear-gradient(135deg, #e11d48 0%, #b91c1c 100%); 
-            border: none; 
-            border-radius: 14px; 
-            color: #ffffff; 
-            font-size: 16px; 
-            font-weight: 600; 
-            cursor: pointer; 
-            transition: all 0.3s ease; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 10px; 
-            box-shadow: 0 4px 20px rgba(225, 29, 72, 0.3); 
-        }
-        
-        .login-container:hover .cartoon-audience { 
-            animation: cartoonBounce 0.6s ease infinite alternate; 
-        }
-        
-        @keyframes cartoonBounce { 
-            0% { transform: translateY(0); } 
-            100% { transform: translateY(-6px); } 
-        }
-        
-        .login-btn:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 6px 25px rgba(225, 29, 72, 0.5); 
-        }
-        
-        /* গেটওয়ে চেকিং স্পিনার */
-        .spinner { 
-            display: none; 
-            width: 20px; 
-            height: 20px; 
-            border: 3px solid rgba(255, 255, 255, 0.3); 
-            border-radius: 50%; 
-            border-top-color: #ffffff; 
-            animation: spin 0.8s linear infinite; 
-        }
-        
-        @keyframes spin { to { transform: rotate(360deg); } }
-    </style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body {
+    background: radial-gradient(circle at center, #2e0507 0%, #004d38 50%, #00261c 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-container {
+    background: rgba(0, 38, 28, 0.75);
+    backdrop-filter: blur(25px);
+    padding: 35px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+h2 { color: #fff; margin-bottom: 10px; }
+
+p { color: #aaa; margin-bottom: 20px; }
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 14px 40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.05);
+    color: white;
+}
+
+i.left {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #aaa;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #e11d48, #b91c1c);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.error-box {
+    display: none;
+    background: rgba(255,0,0,0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: #ff8a8a;
+}
+</style>
 </head>
+
 <body>
 
-    <div id="particles-js"></div>
+<div class="login-container">
 
-    <div class="login-container">
-        <div class="movie-cartoon-banner">
-            <div class="cartoon-audience">
-                <i class="fas fa-user-astronaut fan-1"></i>
-                <i class="fas fa-popcorn" style="color: #eab308; font-size: 24px; align-self: center;">🍿</i>
-                <i class="fas fa-user-ninja fan-2"></i>
-            </div>
-        </div>
+    <h2>সিনে-কাস্টমার লগইন</h2>
+    <p>আপনার অ্যাকাউন্টে প্রবেশ করুন</p>
 
-        <div class="movie-badge-icons">
-            <i class="fas fa-film"></i>
-            <i class="fas fa-ticket-alt"></i>
-            <i class="fas fa-video"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        
-        <div class="login-header">
-            <h2>সিনে-কাস্টমার লগইন</h2>
-            <p>আপনার অ্যাকাউন্ট ভেরিফাই করুন</p>
-        </div>
-
-        <div class="error-box" id="errorBox">
-            <i class="fas fa-exclamation-triangle"></i>
-            <span id="errorText"></span>
-        </div>
-
-        <form id="loginForm">
-            <div class="input-group">
-                <input type="text" id="username" name="username" placeholder="ইউজারনেম বা রেজিস্টার্ড ইমেইল" required autocomplete="off">
-                <i class="fas fa-clapperboard left-icon"></i>
-            </div>
-
-            <div class="input-group">
-                <input type="password" id="password" name="password" placeholder="গোপন পাসওয়ার্ড" required>
-                <i class="fas fa-lock left-icon"></i>
-                <i class="fas fa-eye toggle-password" id="eyeIcon"></i>
-            </div>
-
-            <div class="forgot-pass">
-                <a href="#">পাসওয়ার্ড মনে পড়ছে না?</a>
-            </div>
-
-            <button type="submit" class="login-btn" id="submitBtn">
-                <div class="spinner" id="btnSpinner"></div>
-                <span id="btnText"><i class="fas fa-circle-play"></i> থিয়েটারে প্রবেশ করুন</span>
-            </button>
-        </form>
+    <div class="error-box" id="errorBox">
+        <span id="errorText"></span>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script>
-        /* 🔄 মাউস ছাড়াই স্বয়ংক্রিয়ভাবে ভেসে বেড়ানো ঘন লম্বা রেখার কনফিগারেশন */
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 65, density: { enable: true, value_area: 800 } },
-                color: { value: ['#10b981', '#f43f5e'] }, 
-                shape: { type: 'circle' },
-                opacity: { value: 0.4, random: false },
-                size: { value: 4, random: true },
-                line_linked: { 
-                    enable: true, 
-                    distance: 160, 
-                    color: '#10b981', 
-                    opacity: 0.35, 
-                    width: 1.2 
-                },
-                move: { 
-                    enable: true, 
-                    speed: 1.5, 
-                    direction: 'none', 
-                    random: true, 
-                    straight: false, 
-                    out_mode: 'out' 
-                }
-            },
-            interactivity: { detect_on: 'canvas', events: { onhover: { enable: false } } }
+    <form id="loginForm">
+
+        <div class="input-group">
+            <i class="fas fa-user left"></i>
+            <input type="text" id="username" placeholder="Username" required>
+        </div>
+
+        <div class="input-group">
+            <i class="fas fa-lock left"></i>
+            <input type="password" id="password" placeholder="Password" required>
+            <i class="fas fa-eye toggle-password" id="eyeIcon"></i>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+</div>
+
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbyvOzBF0NhMDksSyLuU5iV9kUjNyN59LMY3umBUfjyfCAUgRG_HNt4AjzDp1PJLQJ5P/exec";
+
+/* Device ID */
+function getDeviceId() {
+    let id = localStorage.getItem("deviceId");
+    if (!id) {
+        id = crypto.randomUUID();
+        localStorage.setItem("deviceId", id);
+    }
+    return id;
+}
+
+/* Password toggle */
+const password = document.getElementById("password");
+const eyeIcon = document.getElementById("eyeIcon");
+
+eyeIcon.addEventListener("click", () => {
+    if(password.type === "password"){
+        password.type = "text";
+        eyeIcon.className = "fas fa-eye-slash toggle-password";
+    } else {
+        password.type = "password";
+        eyeIcon.className = "fas fa-eye toggle-password";
+    }
+});
+
+/* LOGIN SYSTEM */
+document.getElementById("loginForm").addEventListener("submit", async function(e){
+    e.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const passwordVal = document.getElementById("password").value;
+
+    const errorBox = document.getElementById("errorBox");
+    const errorText = document.getElementById("errorText");
+
+    errorBox.style.display = "none";
+
+    try {
+        const res = await fetch(API_URL, {
+            method: "POST",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify({
+                action:"login",
+                username,
+                password: passwordVal,
+                deviceId: getDeviceId()
+            })
         });
 
-        /* পাসওয়ার্ড দেখা বা লুকানোর (Hiding/Showing) লজিক */
-        const passwordInput = document.getElementById('password');
-        const eyeIcon = document.getElementById('eyeIcon');
-        eyeIcon.addEventListener('click', () => {
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                eyeIcon.className = 'fas fa-eye-slash toggle-password';
-            } else {
-                passwordInput.type = 'password';
-                eyeIcon.className = 'fas fa-eye toggle-password';
-            }
-        });
+        const data = await res.json();
 
-        /* 🚀 ফর্ম সাবমিট করার পর গুগল অ্যাপ স্ক্রিপ্ট ডাটাবেজের সাথে লাইভ কানেকশন */
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault(); 
-
-            const errorBox = document.getElementById('errorBox');
-            const btnText = document.getElementById('btnText');
-            const btnSpinner = document.getElementById('btnSpinner');
-            const submitBtn = document.getElementById('submitBtn');
-
-            errorBox.style.display = "none";
-            btnText.innerText = "গেটওয়ে চেক করা হচ্ছে...";
-            btnSpinner.style.display = "block"; 
-            submitBtn.style.pointerEvents = "none"; 
-
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-
-            // গুগল অ্যাপ স্ক্রিপ্টের ব্যাকএন্ড ফাংশন কল করা হচ্ছে
-            google.script.run
-                .withSuccessHandler(function(response) {
-                    if (response.success) {
-                        alert(response.message); 
-                        // 🎉 লগইন সফল হলে আপনার মেইন ড্যাশবোর্ডের লিংক নিচে দিতে পারেন
-                        // window.location.href = "আপনার_লিংক";
-                    } else {
-                        // ❌ ভুল পাসওয়ার্ড বা ইতিমধ্যে অন্য কোথাও লগইন থাকলে এরর দেখাবে
-                        document.getElementById('errorText').innerText = response.message;
-                        errorBox.style.display = "flex";
-                        resetButton();
-                    }
-                })
-                .withFailureHandler(function(err) {
-                    document.getElementById('errorText').innerText = "সার্ভার এরর! আবার চেষ্টা করুন।";
-                    errorBox.style.display = "flex";
-                    resetButton();
-                })
-                .processLogin(username, password); // Code.gs ফাইলের ফাংশন
-        });
-
-        function resetButton() {
-            document.getElementById('btnText').innerHTML = '<i class="fas fa-circle-play"></i> থিয়েটারে প্রবেশ করুন';
-            document.getElementById('btnSpinner').style.display = "none";
-            document.getElementById('submitBtn').style.pointerEvents = "auto";
+        if(data.status === "success"){
+            window.location.href = "customer-dashboard.html";
+        } else {
+            errorText.innerText = data.message;
+            errorBox.style.display = "block";
         }
-    </script>
+
+    } catch(err){
+        errorText.innerText = "Server error!";
+        errorBox.style.display = "block";
+    }
+});
+</script>
+
 </body>
 </html>
