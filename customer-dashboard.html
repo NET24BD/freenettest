@@ -75,20 +75,21 @@ h2{
     border:1px solid rgba(0,200,83,0.15);
 }
 
+/* HOVER = RED */
 .card:hover{
     transform:scale(1.05);
-    background:#123225;
-    border-color:#00c853;
-}
-
-/* ACTIVE (CLICKED RED STATE) */
-.card.active{
-    border:1px solid #ff1744;
     background:#2a0f12;
-    box-shadow:0 0 15px rgba(255,23,68,0.4);
+    border:1px solid #ff1744;
+    box-shadow:0 0 15px rgba(255,23,68,0.35);
 }
 
-/* STATUS */
+/* CLICK ACTIVE = RED STICKY */
+.card.active{
+    background:#2a0f12;
+    border:1px solid #ff1744;
+    box-shadow:0 0 18px rgba(255,23,68,0.5);
+}
+
 .status{
     font-size:13px;
     font-weight:bold;
@@ -176,19 +177,16 @@ function logout(){
     window.location.replace("customer-login.html");
 }
 
-// CLICK SYSTEM (ACTIVE RED + OPEN LINK)
+// CLICK SYSTEM (ACTIVE + OPEN LINK)
 document.querySelectorAll(".card").forEach(card=>{
     card.addEventListener("click",()=>{
 
-        // remove active from all
         document.querySelectorAll(".card").forEach(c=>{
             c.classList.remove("active");
         });
 
-        // add active to clicked
         card.classList.add("active");
 
-        // open link
         window.open(card.getAttribute("data-link"), "_blank");
     });
 });
