@@ -9,8 +9,8 @@
 body{
     margin:0;
     font-family:Arial;
-    background:#0f172a;
-    color:white;
+    background:#07140f; /* NEW THEME BACKGROUND */
+    color:#eafff3;
 }
 
 header{
@@ -18,8 +18,12 @@ header{
     padding:15px;
     font-size:22px;
     font-weight:bold;
+    background:linear-gradient(90deg,#00c853,#ff1744);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
+/* TOP BAR */
 .topbar{
     display:flex;
     justify-content:center;
@@ -29,14 +33,17 @@ header{
 }
 
 .box{
-    background:#1e293b;
+    background:#0e241b; /* THEME DARK GREEN */
     padding:8px 12px;
     border-radius:10px;
     font-size:13px;
+    border:1px solid rgba(0,200,83,0.25);
+    color:#eafff3;
 }
 
+/* LOGOUT */
 .logout{
-    background:red;
+    background:#ff1744;
     color:white;
     border:none;
     padding:8px 12px;
@@ -44,6 +51,7 @@ header{
     border-radius:10px;
 }
 
+/* CONTAINER */
 .container{
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
@@ -53,17 +61,20 @@ header{
 
 /* CARD */
 .card{
-    background:#1e293b;
+    background:#0e241b; /* NEW DARK GREEN CARD */
     padding:20px;
     border-radius:15px;
     text-align:center;
     cursor:pointer;
     transition:0.3s;
+    border:1px solid rgba(0,200,83,0.15);
 }
 
 .card:hover{
     transform:scale(1.05);
-    background:#243042;
+    background:#123225;
+    border-color:#00c853;
+    box-shadow:0 0 15px rgba(0,200,83,0.25);
 }
 
 /* STATUS */
@@ -73,8 +84,13 @@ header{
     margin-bottom:8px;
 }
 
-.online{ color:#22c55e; }
-.offline{ color:#ef4444; }
+.online{
+    color:#00e676;
+}
+
+.offline{
+    color:#ff5252;
+}
 
 .server-name{
     font-size:16px;
@@ -82,7 +98,7 @@ header{
     display:block;
     margin-top:8px;
     padding-top:8px;
-    border-top:1px solid rgba(255,255,255,0.1);
+    border-top:1px solid rgba(255,255,255,0.08);
 }
 </style>
 </head>
@@ -100,89 +116,54 @@ header{
 
 <div class="container">
 
-<!-- 20 CARDS WITH LINKS -->
-<div class="card" data-link="http://172.20.21.22/"><div class="status online">ONLINE</div><span class="server-name">Fun time </span></div>
+<div class="card" data-link="http://172.20.21.22/">
+    <div class="status online">ONLINE</div>
+    <span class="server-name">Fun time</span>
+</div>
 
-<div class="card" data-link="http://new.circleftp.net/"><div class="status online">ONLINE</div><span class="server-name">Circelftp</span></div>
+<div class="card" data-link="http://new.circleftp.net/">
+    <div class="status online">ONLINE</div>
+    <span class="server-name">Circelftp</span>
+</div>
 
-<div class="card" data-link="https://ctgmovies.com/"><div class="status online">ONLINE</div><span class="server-name">Ctg Movie</span></div>
+<div class="card" data-link="https://ctgmovies.com/">
+    <div class="status online">ONLINE</div>
+    <span class="server-name">Ctg Movie</span>
+</div>
 
-<div class="card" data-link="http://play.starplex.live/"><div class="status online">ONLINE</div><span class="server-name">Star Plex</span></div>
+<div class="card" data-link="http://play.starplex.live/">
+    <div class="status online">ONLINE</div>
+    <span class="server-name">Star Plex</span>
+</div>
 
-<div class="card" data-link="https://play.roarzone.net/web/index.html#!/home"><div class="status online">ONLINE</div><span class="server-name">Roarzone</span></div>
-
-<div class="card" data-link="https://play.roarzone.net/web/index.html#!/home"><div class="status online">ONLINE</div><span class="server-name">Roarzone</span></div>
-
-<div class="card" data-link="https://netflix.com"><div class="status online">ONLINE</div><span class="server-name">Netflix</span></div>
-
-<div class="card" data-link="http://golmal.net/"><div class="status online">ONLINE</div><span class="server-name">Golmal</span></div>
-
-<div class="card" data-link="https://itcnbd.live/"><div class="status online">ONLINE</div><span class="server-name">Itcn BD</span></div>
-
-<div class="card" data-link="https://wikipedia.org"><div class="status online">ONLINE</div><span class="server-name">Wikipedia</span></div>
-
-<div class="card" data-link="https://reddit.com"><div class="status online">ONLINE</div><span class="server-name">Reddit</span></div>
-
-<div class="card" data-link="https://linkedin.com"><div class="status online">ONLINE</div><span class="server-name">Linkedin</span></div>
-
-<div class="card" data-link="https://bing.com"><div class="status online">ONLINE</div><span class="server-name">Bing</span></div>
-
-<div class="card" data-link="https://amazon.com"><div class="status online">ONLINE</div><span class="server-name">Amazom</span></div>
-
-<div class="card" data-link="https://apple.com"><div class="status online">ONLINE</div><span class="server-name">Apple</span></div>
-
-<div class="card" data-link="https://microsoft.com"><div class="status online">ONLINE</div><span class="server-name">Microsoft</span></div>
-
-<div class="card" data-link="https://cloudflare.com"><div class="status online">ONLINE</div><span class="server-name">CloudFlare</span></div>
-
-<div class="card" data-link="https://spotify.com"><div class="status online">ONLINE</div><span class="server-name">Sportify</span></div>
-
-<div class="card" data-link="https://discord.com"><div class="status online">ONLINE</div><span class="server-name">Discover</span></div>
-
-<div class="card" data-link="https://telegram.org"><div class="status online">ONLINE</div><span class="server-name">Telegram</span></div>
+<div class="card" data-link="https://netflix.com">
+    <div class="status online">ONLINE</div>
+    <span class="server-name">Netflix</span>
+</div>
 
 </div>
 
 <script>
 
-////////////////////////////////////////////////////
 // LOGIN CHECK
-////////////////////////////////////////////////////
 if(localStorage.getItem("auth") !== "true"){
     window.location.replace("customer-login.html");
 }
 
-////////////////////////////////////////////////////
-// BACK BUTTON BLOCK
-////////////////////////////////////////////////////
-window.history.pushState(null, "", window.location.href);
-window.onpopstate = function(){
-    window.history.pushState(null, "", window.location.href);
-};
-
-////////////////////////////////////////////////////
 // LOGOUT
-////////////////////////////////////////////////////
 function logout(){
     localStorage.removeItem("auth");
     window.location.replace("customer-login.html");
 }
 
-////////////////////////////////////////////////////
-// CARD CLICK LINK SYSTEM
-////////////////////////////////////////////////////
+// CARD CLICK
 document.querySelectorAll(".card").forEach(card=>{
-    card.addEventListener("click", ()=>{
-        let link = card.getAttribute("data-link");
-        if(link){
-            window.open(link, "_blank"); // নতুন tab এ খুলবে
-        }
+    card.addEventListener("click",()=>{
+        window.open(card.getAttribute("data-link"), "_blank");
     });
 });
 
-////////////////////////////////////////////////////
 // COUNT
-////////////////////////////////////////////////////
 function update(){
     let cards = document.querySelectorAll(".card");
     let online = document.querySelectorAll(".online");
@@ -192,9 +173,7 @@ function update(){
 }
 update();
 
-////////////////////////////////////////////////////
 // TIME
-////////////////////////////////////////////////////
 setInterval(()=>{
     document.getElementById("time").innerText = new Date().toLocaleTimeString();
 },1000);
