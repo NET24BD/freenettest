@@ -81,13 +81,23 @@ h2{
     border-color:#00c853;
 }
 
+/* ACTIVE (CLICKED RED STATE) */
+.card.active{
+    border:1px solid #ff1744;
+    background:#2a0f12;
+    box-shadow:0 0 15px rgba(255,23,68,0.4);
+}
+
+/* STATUS */
 .status{
     font-size:13px;
     font-weight:bold;
     margin-bottom:8px;
 }
 
-.online{ color:#00e676; }
+.online{
+    color:#00e676;
+}
 
 .server-name{
     font-size:16px;
@@ -135,7 +145,7 @@ h2{
 
 </div>
 
-<!-- ================= SOCIAL / TOOLS ================= -->
+<!-- ================= SOCIAL ================= -->
 <h2>🌐 Social & Tools</h2>
 <div class="container">
 
@@ -166,14 +176,24 @@ function logout(){
     window.location.replace("customer-login.html");
 }
 
-// CLICK OPEN LINK
+// CLICK SYSTEM (ACTIVE RED + OPEN LINK)
 document.querySelectorAll(".card").forEach(card=>{
     card.addEventListener("click",()=>{
+
+        // remove active from all
+        document.querySelectorAll(".card").forEach(c=>{
+            c.classList.remove("active");
+        });
+
+        // add active to clicked
+        card.classList.add("active");
+
+        // open link
         window.open(card.getAttribute("data-link"), "_blank");
     });
 });
 
-// COUNT UPDATE
+// COUNT
 function update(){
     let cards = document.querySelectorAll(".card");
     let online = document.querySelectorAll(".online");
